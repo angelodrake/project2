@@ -30,10 +30,8 @@ module.exports = function(sequelize, DataTypes) {
     });
     Patient.associate = function(models) {
         Patient.belongsToMany(models.Doctor, {
-            through: "DoctorsPatients",
-            as: "doctors",
-            foreignKey: "patientId",
-            otherKey: "doctorId"
+            through: "DoctorPatient",
+            as: "doctors"
         })
     }; 
     return Patient;
