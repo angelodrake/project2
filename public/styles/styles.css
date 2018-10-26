@@ -1,3 +1,30 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.title {
+  font-size: 80px
+}
+
+body, html {
+  height: 100%;
+}
+
+body { 
+  /* The image used */
+  background-image: url("../images/background\ color.png");
+  overflow: auto;
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.box {
+  opacity: .7;
+  height: 100%
+}
