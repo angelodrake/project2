@@ -7,7 +7,19 @@ module.exports = function (app) {
       include: [db.Doctor]
     }).then(function (data) {
       res.json(data);
-      console.log("=====================" + res.json(data))
+    });
+  });
+
+  //get single patient
+  app.get("/api/patients/:id", function (req, res) {
+
+    db.Patient.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.Doctor]
+    }).then(function (data) {
+      res.json(data);
     });
   });
 
