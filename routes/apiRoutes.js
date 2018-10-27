@@ -10,11 +10,24 @@ module.exports = function(app) {
     });
   });
 
-  // Create a new patient
-  app.post("/api/patients", function(req, res) {
-    db.Patient.create(req.body).then(function(data) {
-      res.json(data);
-    });
+  //get single patient
+  app.get("/api/patients/:id", function(req, res) {
+
+  db.Patient.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [db.Doctor]
+  }).then(function(data) {
+    res.json(data);
   });
+});
+
+ // Create a new patient
+ app.post("/api/patients", function(req, res) {
+  db.Patient.create(req.body).then(function(data) {
+    res.json(data);
+  });
+});
 
 };
