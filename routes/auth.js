@@ -1,25 +1,25 @@
-var authController = require('../controllers/authcontroller.js');
+var authController = require("../controllers/authcontroller.js");
  
 module.exports = function(app, passport) {
  
-    app.get('/signup', authController.signup);
+    app.get("/signup", authController.signup);
 
-    app.get('/signin', authController.signin);
+    app.get("/signin", authController.signin);
 
-    app.post('/signin', passport.authenticate('local-signin', {
-        successRedirect: '/dashboard',
+    app.post("/signin", passport.authenticate("local-signin", {
+        successRedirect: "/dashboard",
  
-        failureRedirect: '/signin'
+        failureRedirect: "/signin"
     }
  
     ));
 
-    app.get('/logout',authController.logout);
+    app.get("/logout",authController.logout);
 
-    app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/dashboard',
+    app.post("/signup", passport.authenticate("local-signup", {
+        successRedirect: "/dashboard",
  
-        failureRedirect: '/signup'
+        failureRedirect: "/signup"
 
     }))
     function isLoggedIn(req, res, next) {
@@ -28,8 +28,8 @@ module.exports = function(app, passport) {
          
             return next();
              
-        res.redirect('/signin');
+        res.redirect("/signin");
      
     }
-    app.get('/dashboard',isLoggedIn, authController.dashboard);
+    app.get("/dashboard",isLoggedIn, authController.dashboard);
 }
