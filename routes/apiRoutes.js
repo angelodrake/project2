@@ -7,6 +7,7 @@ module.exports = function (app) {
       include: [db.Doctor]
     }).then(function (data) {
       res.json(data);
+      console.log("=====================" + res.json(data))
     });
   });
 

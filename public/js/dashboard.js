@@ -16,7 +16,7 @@ $("#phone").on("change keyup paste", function () {
 });
 
 
-function tabChanger(event, tabID) {
+function tabChanger(event, tabId) {
     tabContent = $(".tab-content");
     for (var i = 0; i < tabContent.length; i++) {
         tabContent[i].style.display = "none";
@@ -28,8 +28,8 @@ function tabChanger(event, tabID) {
         tabLinks[i].className = tabLinks[i].className.replace(" is-active", "")
     };
 
-    // $(tabID).
-    document.getElementById(tabID).style.display = "block";
+    // $(tabId).
+    document.getElementById(tabId).style.display = "block";
     event.currentTarget.className += (" is-active");
     // this.className += (" is-active");
 
@@ -50,3 +50,27 @@ $("#add-cancel-button").on("click", function (event) {
 $("#add-x").on("click", function (event) {
     $("#add-modal").removeClass("is-active")
 })
+
+$("#all-patients-tab").click(function () {
+    console.log("HAI")
+    fillPatients();
+});
+
+function fillPatients() {
+    $.ajax({
+        url: "/api/patients",
+        method: "GET"
+    }).then(function (data) {
+        var patients = data.patients;
+        $("#patient-holder").empty();
+        for (var i = 0; i < patients.length; i++) {
+            var id = patients[i].id
+            var name = patients[i].name
+            var patientTr = $("<tr id = '" + id + "'> <td>" + id + "</td><td>" + name + "</td></tr>")
+
+
+            $("#patient-holder").append(patientTr);
+        }
+
+    })
+}

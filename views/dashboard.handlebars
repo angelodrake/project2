@@ -1,26 +1,26 @@
 <div class="tabs is-centered is-boxed is-medium">
     <ul>
-        <li class="tab is-active" onclick="tabChanger(event, 'all-patients-content')">
+        <li class="tab is-active" onclick="tabChanger(event, 'all-patients-content')" id="all-patients-tab">
             <a>
-                <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fas fa-address-book" aria-hidden="true"></i></span>
                 <span>All Patients</span>
             </a>
         </li>
-        <li class="tab" onclick="tabChanger(event, 'add-patient-content')">
+        <li class="tab" onclick="tabChanger(event, 'add-patient-content')" id="add-patient-tab">
             <a>
-                <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fas fa-plus" aria-hidden="true"></i></span>
                 <span>Create New Patient</span>
             </a>
         </li>
-        <li class="tab" onclick="tabChanger(event, 'all-doctors-content')">
+        <li class="tab" onclick="tabChanger(event, 'all-doctors-content')" id="all-doctors-tab">
             <a>
-                <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fas fa-user-md" aria-hidden="true"></i></span>
                 <span>All Doctors</span>
             </a>
         </li>
-        <li class="tab" onclick="tabChanger(event, 'add-doctor-content')">
+        <li class="tab" onclick="tabChanger(event, 'add-doctor-content')" id="add-doctor-tab">
             <a>
-                <span class="icon is-small"><i class="far fa-file-alt" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fas fa-plus-square" aria-hidden="true"></i></span>
                 <span>Create New Doctor</span>
             </a>
         </li>
@@ -34,20 +34,15 @@
             <h3 class="title is-3">Patients</h3>
             <table>
                 <tr>
-                    <th>Patient Name</th>
                     <th>Patient ID</th>
+                    <th>Patient Name</th>
+
                     {{!-- need to check the patients, name, id below --}}
                 </tr>
-                {{#each patients}}
-                <tr class="patient-row">
-                    <td>
-                        {{id}}
-                    </td>
-                    <td>
-                        {{name}}
-                    </td>
-                </tr>
-                {{/each}}
+                <tbody class="patient-holder">
+
+                </tbody>
+
             </table>
         </div>
         <div class="column is-2"></div>
@@ -76,7 +71,7 @@
                         <label class="label">Birthday</label>
                         <div class="control has-icons-left">
 
-                            <input type="date" class="input date" id="start-date" name="birthday" min="2018-01-01" max="2020-12-31">
+                            <input type="date" class="input date" id="start-date" name="birthday" min="1900-01-01" max="2020-12-31">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-birthday-cake"></i>
                             </span>
