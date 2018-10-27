@@ -22,14 +22,16 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 isEmail: true
             }
-        }
+        },
     });
     Doctor.associate = function(models) {
-        Doctor.belongsToMany(models.Patient, {
-            through: "DoctorPatient",
-            as: "patients",
-        })
-    }; 
+        
+        Doctor.belongsTo(models.Patient, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+      };
     return Doctor;
 };
   
