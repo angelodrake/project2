@@ -1,24 +1,24 @@
 <div class="tabs is-centered is-boxed is-medium">
     <ul>
-        <li class="is-active">
+        <li class="tab is-active" onclick="tabChanger(event, 'all-patients-content')">
             <a>
                 <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
                 <span>All Patients</span>
             </a>
         </li>
-        <li>
+        <li class="tab" onclick="tabChanger(event, 'add-patient-content')">
             <a>
                 <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span>
                 <span>Create New Patient</span>
             </a>
         </li>
-        <li>
+        <li class="tab" onclick="tabChanger(event, 'all-doctors-content')">
             <a>
                 <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span>
                 <span>All Doctors</span>
             </a>
         </li>
-        <li>
+        <li class="tab" onclick="tabChanger(event, 'add-doctor-content')">
             <a>
                 <span class="icon is-small"><i class="far fa-file-alt" aria-hidden="true"></i></span>
                 <span>Create New Doctor</span>
@@ -27,11 +27,11 @@
     </ul>
 </div>
 
-<div id="all-patients-content">
+<div id="all-patients-content" class="tab-content" style="display: block">
     <div class="columns">
         <div class="column is-2"></div>
         <div class="column is-8">
-            <h3>Patients</h3>
+            <h3 class="title is-3">Patients</h3>
             <table>
                 <tr>
                     <th>Patient Name</th>
@@ -39,12 +39,12 @@
                     {{!-- need to check the patients, name, id below --}}
                 </tr>
                 {{#each patients}}
-                <tr>
-                    <td>
-                        {{name}}
-                    </td>
+                <tr class="patient-row">
                     <td>
                         {{id}}
+                    </td>
+                    <td>
+                        {{name}}
                     </td>
                 </tr>
                 {{/each}}
@@ -53,12 +53,12 @@
         <div class="column is-2"></div>
     </div>
 </div>
-<div id="add-patient-content">
+<div id="add-patient-content" class="tab-content" style="display: none">
     <div class="columns">
         <div class="column is-2">
         </div>
         <div class="column is-8">
-            <h3>Add a New Patient</h3>
+            <h3 class="title is-3">Add a New Patient</h3>
             <div class="box">
                 <form action="newPatient" method="post" id="newPatient">
                     <div class="field">
@@ -151,11 +151,11 @@
     </div>
 
 </div>
-<div id="all-doctors-content">
+<div id="all-doctors-content" class="tab-content" style="display: none">
     <div class="columns">
         <div class="column is-2"></div>
         <div class="column is-8">
-            <h3>Doctors</h3>
+            <h3 class="title is-3">Doctors</h3>
             <table>
                 <tr>
                     <th>Patient Name</th>
@@ -175,70 +175,168 @@
             </table>
         </div>
     </div>
-    <div id="add-doctor-content">
-        <div class="columns">
-            <div class="column is-2">
+</div>
+<div id="add-doctor-content" class="tab-content" style="display: none">
+    <div class="columns">
+        <div class="column is-2">
+        </div>
+        <div class="column is-8">
+            <h3 class="title is-3">Add a New Doctor</h3>
+            <div class="box">
+                <form action="newPatient" method="post" id="newPatient">
+                    <div class="field">
+                        <label class="label">Full Name</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="text" placeholder="John Doe">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Specialty</label>
+                        <div class="control has-icons-left">
+
+                            <input class="input" type="text" placeholder="Anesthesiologist">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-thumbs-up"></i>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">Phone Number</label>
+                        <div class="control has-icons-left">
+                            <input id="phone" class="input" type="text" placeholder="(555) 555-5555">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="email" placeholder="name@example.com">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-text">Submit</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-text">Cancel</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="column is-8">
-                <h3>Add a New Doctor</h3>
+        </div>
+        <div class="column is-2">
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="add-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">
+                <!-- Patient Name Here --> Patient Name Here
+            </p>
+            <button class="delete" aria-label="close" id="add-x"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="container">
                 <div class="box">
-                    <form action="newPatient" method="post" id="newPatient">
+                    <form action="" method="post">
                         <div class="field">
-                            <label class="label">Full Name</label>
-                            <div class="control has-icons-left">
-                                <input class="input" type="text" placeholder="John Doe">
+                            <label class="label">Birthday</label>
+                            <span class="birthday-container">
+                            </span>
+                            {{!-- <div class="control has-icons-left">
+
+                                <input type="date" class="input date" id="start-date" name="trip" min="2018-01-01" max="2020-12-31">
                                 <span class="icon is-small is-left">
-                                    <i class="fas fa-user"></i>
+                                    <i class="fas fa-birthday-cake"></i>
                                 </span>
-                            </div>
+                            </div>--}}
                         </div>
-
-                        <div class="field">
-                            <label class="label">Specialty</label>
-                            <div class="control has-icons-left">
-
-                                <input class="input" type="text" placeholder="Anesthesiologist">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-thumbs-up"></i>
-                                </span>
-                            </div>
-                        </div>
-
 
                         <div class="field">
                             <label class="label">Phone Number</label>
-                            <div class="control has-icons-left">
+                            <span class="phone-container">
+                            </span>
+                            {{!-- <div class="control has-icons-left">
+
                                 <input id="phone" class="input" type="text" placeholder="(555) 555-5555">
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-phone"></i>
                                 </span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="field">
                             <label class="label">Email</label>
-                            <div class="control has-icons-left">
+                            <span class="email-container">
+                            </span>
+                            {{!-- <div class="control has-icons-left">
                                 <input class="input" type="email" placeholder="name@example.com">
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-envelope"></i>
                                 </span>
-                            </div>
+                            </div> --}}
                         </div>
 
-                        <div class="field is-grouped">
-                            <div class="control">
-                                <button class="button is-text">Submit</button>
-                            </div>
-                            <div class="control">
-                                <button class="button is-text">Cancel</button>
-                            </div>
+                        <div class="field">
+                            <label class="label">Home Address</label>
+                            <span class="address-container">
+                            </span>
+                            {{!-- <div class="control has-icons-left">
+
+                                <input class="input" type="text" placeholder="1600 Pennsylvania Avenue, Washington DC">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                            </div> --}}
                         </div>
+
+                        <div class="field">
+                            <label class="label">Doctor</label>
+                            <span class="doctor-container">
+                            </span>
+                            {{!-- <div class="control">
+                                <div class="select">
+                                    <select>
+                                        <option>Doctor Dre</option>
+                                        <option>Doctor Who</option>
+                                        <option>Doctor Quinn</option>
+                                    </select>
+                                </div>
+                            </div> --}}
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Notes</label>
+                            <span class="notes-container">
+                            </span>
+                            {{!-- <div class="control">
+                                <textarea class="textarea " placeholder="Text area"></textarea>
+                            </div> --}}
+                        </div>
+
                     </form>
                 </div>
             </div>
-            <div class="column is-2">
-            </div>
-        </div>
-
-
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success">Save Changes</button>
+            <button class="button" id="add-cancel-button">Cancel</button>
+        </footer>
     </div>
+</div>
