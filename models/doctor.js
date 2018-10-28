@@ -2,11 +2,17 @@ module.exports = function(sequelize, DataTypes) {
     var Doctor = sequelize.define("Doctor", {
         name: {
             allowNull: false,
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            validate: {
+                len: 3
+            }
         },
         specialty: {
             allowNull: false,
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            validate: {
+                len: 3
+            }
         },
         phone: {
             allowNull: false,
