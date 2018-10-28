@@ -54,7 +54,7 @@ $(document).on("click", ".patient-row", function openModal() {
         $(".address-container").text(data.address)
         //this Doctors is currently capitalized so be careful if someone changes it.
         for (var i = 0; i < data.Doctors.length; i++) {
-            $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].id + "</p>")
+            $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].specialty + "</p>")
         }
         for (var i = 0; i < data.Perscriptions.length; i++) {
             $(".perscription-container").append("<p>" + data.Perscriptions[i].brand + " | " + data.Perscriptions[i].id + "</p>")
@@ -122,10 +122,36 @@ function newPatient(event) {
         address: $("#address").val().trim(),
         email: $("#newEmail").val().trim()
     }
-    
+
     $.post("/api/patients", newPatient);
-  }
+}
 
 function emptyFields() {
     $(".doctor-container").empty();
 }
+
+
+
+
+//open the editor for any field of the individual patient
+$(document).on("click", ".editable", editInfo);
+function editInfo() {
+    var currentEditable = $(this).text();
+    $(this).hide();
+    $(this).siblings().val(currentEditable);
+    $(this).siblings().show();
+    $(this).siblings().focus();
+}
+
+//change patient data to match users changes (not posting yet, just on form)
+$(document).on("blur", ".hidden-input", matchInput);
+function matchInput() {
+    var currentEditable = $(this).val();
+    $(this).hide();
+    $(this).siblings(".editable").text(currentEditable);
+    $(this).siblings().show();
+    // $(this).siblings().focus();
+}
+
+//push changes to database
+$("#save-changes-button").click()

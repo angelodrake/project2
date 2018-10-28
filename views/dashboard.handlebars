@@ -243,30 +243,37 @@
                     <form action="" method="post">
                         <div class="field">
                             <label class="label">Birthday</label>
+                            <input class="input hidden-input" type="text">
                             <p class="birthday-container editable">
+
                             </p>
+
                         </div>
 
                         <div class="field">
                             <label class="label">Phone Number</label>
+                            <input class="input hidden-input" type="text">
                             <p class="phone-container editable">
                             </p>
                         </div>
 
                         <div class="field">
                             <label class="label">Email</label>
+                            <input class="input hidden-input" type="email">
                             <p class="email-container editable">
                             </p>
                         </div>
 
                         <div class="field">
                             <label class="label">Home Address</label>
+                            <input class="input hidden-input" type="text">
                             <p class="address-container editable">
                             </p>
                         </div>
 
-                        <div class="field">
+                        {{!-- <div class="field">
                             <label class="label">Doctors</label>
+                            <input class="input hidden-input" type="text">
                             <div class="doctor-container editable">
                             </div>
                         </div>
@@ -279,16 +286,17 @@
 
                         <div class="field">
                             <label class="label">Notes</label>
+                            <input class="input hidden-input" type="text">
                             <p class="notes-container editable">
                             </p>
-                        </div>
+                        </div> --}}
 
                     </form>
                 </div>
             </div>
         </section>
         <footer class="modal-card-foot">
-            <button class="button is-success">Save Changes</button>
+            <button class="button is-success" id="save-changes-button">Save Changes</button>
             <button class="button" id="add-cancel-button">Cancel</button>
         </footer>
     </div>
