@@ -107,17 +107,22 @@ $("#all-doctors-tab").click(function fillDoctors() {
     })
 });
 
+$("#newPatientBtn").click(newPatient)
+
+// new patient function
+function newPatient(event) {
+    event.preventDefault();
+    var newPatient = {
+        name: $("#name").val().trim(),
+        birthday: $("#birthday").val().trim(),
+        phone: $("#phone").val().trim(),
+        address: $("#address").val().trim(),
+        email: $("#newEmail").val().trim()
+    }
+    
+    $.post("/api/patients", newPatient);
+  }
+
 function emptyFields() {
     $(".doctor-container").empty();
 }
-
-// // 
-// $(document).on("click", ".editable", editInfo);
-
-// function editInfo() {
-//     var currentTodo = $(this).data("todo");
-//     $(this).children().hide();
-//     $(this).children("input.edit").val(currentTodo.text);
-//     $(this).children("input.edit").show();
-//     $(this).children("input.edit").focus();
-// }
