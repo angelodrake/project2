@@ -58,7 +58,7 @@
                         <label class="label">Full Name</label>
                         <div class="control has-icons-left">
 
-                            <input class="input" type="text" placeholder="John Doe">
+                            <input class="input" id="name" type="text" placeholder="John Doe">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -69,7 +69,7 @@
                         <label class="label">Birthday</label>
                         <div class="control has-icons-left">
 
-                            <input type="date" class="input date" id="start-date" name="birthday" min="1900-01-01" max="2020-12-31">
+                            <input type="date" class="input date" id="birthday" name="birthday" min="1900-01-01" max="2020-12-31">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-birthday-cake"></i>
                             </span>
@@ -90,7 +90,7 @@
                     <div class="field">
                         <label class="label">Email</label>
                         <div class="control has-icons-left">
-                            <input class="input" type="email" placeholder="name@example.com">
+                            <input class="input" id="newEmail" type="email" placeholder="name@example.com">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
@@ -101,7 +101,7 @@
                         <label class="label">Home Address</label>
                         <div class="control has-icons-left">
 
-                            <input class="input" type="text" placeholder="1600 Pennsylvania Avenue, Washington DC">
+                            <input class="input" id="address" type="text" placeholder="1600 Pennsylvania Avenue, Washington DC">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-home"></i>
                             </span>
@@ -130,7 +130,7 @@
 
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-text" id="new-patient-submit-button">Submit</button>
+                            <button class="button is-text" id="newPatientBtn">Submit</button>
                         </div>
                         <div class="control">
                             <button class="button is-text">Cancel</button>
@@ -275,6 +275,12 @@
                             <label class="label">Doctors</label>
                             <input class="input hidden-input" type="text">
                             <div class="doctor-container editable">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Perscriptions</label>
+                            <div class="perscription-container editable">
                             </div>
                         </div>
 

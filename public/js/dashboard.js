@@ -53,9 +53,12 @@ $(document).on("click", ".patient-row", function openModal() {
         $(".email-container").text(data.email)
         $(".address-container").text(data.address)
         //this Doctors is currently capitalized so be careful if someone changes it.
-        // for (var i = 0; i < data.Doctors.length; i++) {
-        //     $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].specialty + "</p>")
-        // }
+        for (var i = 0; i < data.Doctors.length; i++) {
+            $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].specialty + "</p>")
+        }
+        for (var i = 0; i < data.Perscriptions.length; i++) {
+            $(".perscription-container").append("<p>" + data.Perscriptions[i].brand + " | " + data.Perscriptions[i].id + "</p>")
+        }
     })
 
 });
@@ -106,6 +109,22 @@ $("#all-doctors-tab").click(function fillDoctors() {
         }
     })
 });
+
+$("#newPatientBtn").click(newPatient)
+
+// new patient function
+function newPatient(event) {
+    event.preventDefault();
+    var newPatient = {
+        name: $("#name").val().trim(),
+        birthday: $("#birthday").val().trim(),
+        phone: $("#phone").val().trim(),
+        address: $("#address").val().trim(),
+        email: $("#newEmail").val().trim()
+    }
+
+    $.post("/api/patients", newPatient);
+}
 
 function emptyFields() {
     $(".doctor-container").empty();
