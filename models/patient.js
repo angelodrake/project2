@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         birthday: {
             allowNull: false,
-            type: DataTypes.DATEONLY
+            type: DataTypes.STRING
         },
         address: {
             allowNull: false,

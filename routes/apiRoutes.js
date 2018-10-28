@@ -36,4 +36,22 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+
+  //update patient
+  app.put("/api/patients", function(req, res) {
+    console.log(req.body.name)
+    db.Patient.update({
+      name: req.body.name,
+      birthday: req.body.birthday,
+      address: req.body.address,
+      phone: req.body.phone,
+      email: req.body.email},
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbPatient) {
+      res.json(dbPatient);
+    });
+  });
 };
