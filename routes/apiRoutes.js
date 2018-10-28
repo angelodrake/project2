@@ -4,7 +4,7 @@ module.exports = function (app) {
   // Get all patients
   app.get("/api/patients", function (req, res) {
     db.Patient.findAll({
-      include: [db.Doctor]
+      include: [db.Doctor, db.Perscription]
     }).then(function (data) {
       res.json(data);
     });
@@ -17,7 +17,7 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       },
-      include: [db.Doctor]
+      include: [db.Doctor, db.Perscription]
     }).then(function (data) {
       res.json(data);
     });

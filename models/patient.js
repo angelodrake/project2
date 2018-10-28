@@ -25,9 +25,9 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     Patient.associate = function(models) {
-        Patient.hasMany(models.Doctor, {
-        })
-    }; 
+        Patient.hasMany(models.Doctor, {}),
+        Patient.hasMany(models.Perscription, {})
+    };
     return Patient;
 };
   

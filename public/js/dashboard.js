@@ -56,6 +56,9 @@ $(document).on("click", ".patient-row", function openModal() {
         for (var i = 0; i < data.Doctors.length; i++) {
             $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].id + "</p>")
         }
+        for (var i = 0; i < data.Perscriptions.length; i++) {
+            $(".perscription-container").append("<p>" + data.Perscriptions[i].brand + " | " + data.Perscriptions[i].id + "</p>")
+        }
     })
 
 });

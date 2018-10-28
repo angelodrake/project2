@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 isEmail: true
             }
-        },
+        }
     });
     Doctor.associate = function(models) {
         
