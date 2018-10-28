@@ -6,7 +6,7 @@
                 <span>All Patients</span>
             </a>
         </li>
-        <li class="tab" onclick="tabChanger(event, 'add-patient-content')" id="add-patient-tab">
+        <li class="tab is-info" onclick="tabChanger(event, 'add-patient-content')" id="add-patient-tab">
             <a>
                 <span class="icon is-small"><i class="fas fa-plus" aria-hidden="true"></i></span>
                 <span>Create New Patient</span>
@@ -31,18 +31,16 @@
     <div class="columns">
         <div class="column is-2"></div>
         <div class="column is-8">
-            <h3 class="title is-3">Patients</h3>
-            <table>
-                <tr>
-                    <th>Patient ID</th>
-                    <th>Patient Name</th>
-
-                    {{!-- need to check the patients, name, id below --}}
-                </tr>
-                <tbody class="patient-holder">
+            <h3 class="title is-3 has-text-centered">Patients</h3>
+            <table class="table is-bordered is-striped is-narrow is-hoverable" id="patient-table">
+                <thead>
+                    <tr>
+                        <th>All Patients</th>
+                    </tr>
+                </thead>
+                <tbody id="patient-holder">
 
                 </tbody>
-
             </table>
         </div>
         <div class="column is-2"></div>
@@ -150,25 +148,19 @@
     <div class="columns">
         <div class="column is-2"></div>
         <div class="column is-8">
-            <h3 class="title is-3">Doctors</h3>
-            <table>
-                <tr>
-                    <th>Patient Name</th>
-                    <th>Patient ID</th>
-                    {{!-- need to check the doctors, name, id below --}}
-                </tr>
-                {{#each doctors}}
-                <tr>
-                    <td>
-                        {{name}}
-                    </td>
-                    <td>
-                        {{id}}
-                    </td>
-                </tr>
-                {{/each}}
+            <h3 class="title is-3 has-text-centered">Doctors</h3>
+            <table class="table is-bordered is-striped is-narrow is-hoverable" id="doctor-table">
+                <thead>
+                    <tr>
+                        <th>All Doctors</th>
+                    </tr>
+                </thead>
+                <tbody id="doctor-holder">
+
+                </tbody>
             </table>
         </div>
+        <div class="column is-2"></div>
     </div>
 </div>
 <div id="add-doctor-content" class="tab-content" style="display: none">
@@ -241,8 +233,7 @@
     <div class="modal-background"></div>
     <div class="modal-card">
         <header class="modal-card-head">
-            <p class="modal-card-title">
-                <!-- Patient Name Here --> Patient Name Here
+            <p class="modal-card-title" id="name-container">
             </p>
             <button class="delete" aria-label="close" id="add-x"></button>
         </header>
@@ -252,77 +243,38 @@
                     <form action="" method="post">
                         <div class="field">
                             <label class="label">Birthday</label>
-                            <span class="birthday-container">
-                            </span>
-                            {{!-- <div class="control has-icons-left">
-
-                                <input type="date" class="input date" id="start-date" name="trip" min="2018-01-01" max="2020-12-31">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-birthday-cake"></i>
-                                </span>
-                            </div>--}}
+                            <p class="birthday-container editable">
+                            </p>
                         </div>
 
                         <div class="field">
                             <label class="label">Phone Number</label>
-                            <span class="phone-container">
-                            </span>
-                            {{!-- <div class="control has-icons-left">
-
-                                <input id="phone" class="input" type="text" placeholder="(555) 555-5555">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-phone"></i>
-                                </span>
-                            </div> --}}
+                            <p class="phone-container editable">
+                            </p>
                         </div>
 
                         <div class="field">
                             <label class="label">Email</label>
-                            <span class="email-container">
-                            </span>
-                            {{!-- <div class="control has-icons-left">
-                                <input class="input" type="email" placeholder="name@example.com">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-envelope"></i>
-                                </span>
-                            </div> --}}
+                            <p class="email-container editable">
+                            </p>
                         </div>
 
                         <div class="field">
                             <label class="label">Home Address</label>
-                            <span class="address-container">
-                            </span>
-                            {{!-- <div class="control has-icons-left">
-
-                                <input class="input" type="text" placeholder="1600 Pennsylvania Avenue, Washington DC">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-home"></i>
-                                </span>
-                            </div> --}}
+                            <p class="address-container editable">
+                            </p>
                         </div>
 
                         <div class="field">
-                            <label class="label">Doctor</label>
-                            <span class="doctor-container">
-                            </span>
-                            {{!-- <div class="control">
-                                <div class="select">
-                                    <select>
-                                        <option>Doctor Dre</option>
-                                        <option>Doctor Who</option>
-                                        <option>Doctor Quinn</option>
-                                    </select>
-                                </div>
-                            </div> --}}
+                            <label class="label">Doctors</label>
+                            <div class="doctor-container editable">
+                            </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Notes</label>
-                            <span class="notes-container">
-                            </span>
-                            {{!-- <div class="control">
-                                <textarea class="textarea " placeholder="Text area"></textarea>
-                            </div> --}}
+                            <p class="notes-container editable">
+                            </p>
                         </div>
 
                     </form>

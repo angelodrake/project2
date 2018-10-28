@@ -1,3 +1,4 @@
+// Making the phone number auto fill characters () -
 $("#phone").on("change keyup paste", function () {
     var output;
     var input = $("#phone").val();
@@ -15,7 +16,7 @@ $("#phone").on("change keyup paste", function () {
     $("#phone").val(output);
 });
 
-
+//changing tabs 
 function tabChanger(event, tabId) {
     tabContent = $(".tab-content");
     for (var i = 0; i < tabContent.length; i++) {
@@ -36,9 +37,29 @@ function tabChanger(event, tabId) {
 };
 
 // opening the modal by clicking a patient's row
-$(".patient-row").on("click", function () {
+
+$(document).on("click", ".patient-row", function openModal() {
     $("#add-modal").addClass("is-active")
-})
+    var id = this.id.substring(8)
+    console.log(id)
+    $.ajax({
+        url: "/api/patients/" + id,
+        method: "GET"
+    }).then(function (data) {
+        emptyFields()
+        $("#name-container").text(data.name)
+        $(".birthday-container").text(data.birthday)
+        $(".phone-container").text(data.phone)
+        $(".email-container").text(data.email)
+        $(".address-container").text(data.address)
+        //this Doctors is currently capitalized so be careful if someone changes it.
+        for (var i = 0; i < data.Doctors.length; i++) {
+            $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].id + "</p>")
+        }
+    })
+
+});
+
 
 // closing the modal by the cancel button
 $("#add-cancel-button").on("click", function (event) {
@@ -51,26 +72,52 @@ $("#add-x").on("click", function (event) {
     $("#add-modal").removeClass("is-active")
 })
 
-$("#all-patients-tab").click(function () {
-    console.log("HAI")
-    fillPatients();
-});
-
-function fillPatients() {
+//filling patients table
+$("#all-patients-tab").click(function fillPatients() {
     $.ajax({
         url: "/api/patients",
         method: "GET"
     }).then(function (data) {
-        var patients = data.patients;
+        console.log(data[0].name)
         $("#patient-holder").empty();
-        for (var i = 0; i < patients.length; i++) {
-            var id = patients[i].id
-            var name = patients[i].name
-            var patientTr = $("<tr id = '" + id + "'> <td>" + id + "</td><td>" + name + "</td></tr>")
-
-
+        for (var i = 0; i < data.length; i++) {
+            var id = data[i].id
+            var name = data[i].name
+            var patientTr = $("<tr class = 'patient-row' id = 'patient-" + id + "'> <td>" + id + " | " + name + "</td></tr>")
             $("#patient-holder").append(patientTr);
         }
 
     })
+});
+
+//filling doctors table
+$("#all-doctors-tab").click(function fillDoctors() {
+    $.ajax({
+        url: "/api/doctors",
+        method: "GET"
+    }).then(function (data) {
+        console.log(data[0].name)
+        $("#doctor-holder").empty();
+        for (var i = 0; i < data.length; i++) {
+            var id = data[i].id
+            var name = data[i].name
+            var doctorTr = $("<tr class = 'doctor-row' id = 'doctor-" + id + "'> <td>" + id + " | " + name + "</td></tr>")
+            $("#doctor-holder").append(doctorTr);
+        }
+    })
+});
+
+function emptyFields() {
+    $(".doctor-container").empty();
 }
+
+// // 
+// $(document).on("click", ".editable", editInfo);
+
+// function editInfo() {
+//     var currentTodo = $(this).data("todo");
+//     $(this).children().hide();
+//     $(this).children("input.edit").val(currentTodo.text);
+//     $(this).children("input.edit").show();
+//     $(this).children("input.edit").focus();
+// }
