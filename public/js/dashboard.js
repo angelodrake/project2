@@ -53,9 +53,9 @@ $(document).on("click", ".patient-row", function openModal() {
         $(".email-container").text(data.email)
         $(".address-container").text(data.address)
         //this Doctors is currently capitalized so be careful if someone changes it.
-        for (var i = 0; i < data.Doctors.length; i++) {
-            $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].id + "</p>")
-        }
+        // for (var i = 0; i < data.Doctors.length; i++) {
+        //     $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].specialty + "</p>")
+        // }
     })
 
 });
@@ -111,13 +111,28 @@ function emptyFields() {
     $(".doctor-container").empty();
 }
 
-// // 
-// $(document).on("click", ".editable", editInfo);
 
-// function editInfo() {
-//     var currentTodo = $(this).data("todo");
-//     $(this).children().hide();
-//     $(this).children("input.edit").val(currentTodo.text);
-//     $(this).children("input.edit").show();
-//     $(this).children("input.edit").focus();
-// }
+
+
+//open the editor for any field of the individual patient
+$(document).on("click", ".editable", editInfo);
+function editInfo() {
+    var currentEditable = $(this).text();
+    $(this).hide();
+    $(this).siblings().val(currentEditable);
+    $(this).siblings().show();
+    $(this).siblings().focus();
+}
+
+//change patient data to match users changes (not posting yet, just on form)
+$(document).on("blur", ".hidden-input", matchInput);
+function matchInput() {
+    var currentEditable = $(this).val();
+    $(this).hide();
+    $(this).siblings(".editable").text(currentEditable);
+    $(this).siblings().show();
+    // $(this).siblings().focus();
+}
+
+//push changes to database
+$("#save-changes-button").click()
