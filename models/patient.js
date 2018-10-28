@@ -17,15 +17,11 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             validate: {
                 not: ["[a-z]", "i"],
-                len: 10
             }
         },
         email: {
             allowNull: false,
             type: DataTypes.STRING,
-            validate: {
-                isEmail: true
-            }
         }
     });
     Patient.associate = function(models) {
