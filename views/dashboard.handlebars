@@ -1,14 +1,289 @@
-<!DOCTYPE html>
-<html>
+<div class="tabs is-centered is-boxed is-medium">
+    <ul>
+        <li class="tab is-active" onclick="tabChanger(event, 'all-patients-content')" id="all-patients-tab">
+            <a>
+                <span class="icon is-small"><i class="fas fa-address-book" aria-hidden="true"></i></span>
+                <span>All Patients</span>
+            </a>
+        </li>
+        <li class="tab is-info" onclick="tabChanger(event, 'add-patient-content')" id="add-patient-tab">
+            <a>
+                <span class="icon is-small"><i class="fas fa-plus" aria-hidden="true"></i></span>
+                <span>Create New Patient</span>
+            </a>
+        </li>
+        <li class="tab" onclick="tabChanger(event, 'all-doctors-content')" id="all-doctors-tab">
+            <a>
+                <span class="icon is-small"><i class="fas fa-user-md" aria-hidden="true"></i></span>
+                <span>All Doctors</span>
+            </a>
+        </li>
+        <li class="tab" onclick="tabChanger(event, 'add-doctor-content')" id="add-doctor-tab">
+            <a>
+                <span class="icon is-small"><i class="fas fa-plus-square" aria-hidden="true"></i></span>
+                <span>Create New Doctor</span>
+            </a>
+        </li>
+    </ul>
+</div>
 
-<head>
-    <title>Passport with Sequelize</title>
-</head>
+<div id="all-patients-content" class="tab-content" style="display: block">
+    <div class="columns">
+        <div class="column is-2"></div>
+        <div class="column is-8">
+            <h3 class="title is-3 has-text-centered">Patients</h3>
+            <table class="table is-bordered is-striped is-narrow is-hoverable" id="patient-table">
+                <thead>
+                    <tr>
+                        <th>All Patients</th>
+                    </tr>
+                </thead>
+                <tbody id="patient-holder">
 
-<body>
-    <h2>Dashboard</h2>
-    <h5>Hurray! you are logged in.</h5>
+                </tbody>
+            </table>
+        </div>
+        <div class="column is-2"></div>
+    </div>
+</div>
+<div id="add-patient-content" class="tab-content" style="display: none">
+    <div class="columns">
+        <div class="column is-2">
+        </div>
+        <div class="column is-8">
+            <h3 class="title is-3">Add a New Patient</h3>
+            <div class="box">
+                <form action="newPatient" method="post" id="newPatient">
+                    <div class="field">
+                        <label class="label">Full Name</label>
+                        <div class="control has-icons-left">
 
-</body>
+                            <input class="input" type="text" placeholder="John Doe">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
 
-</html>
+                    <div class="field">
+                        <label class="label">Birthday</label>
+                        <div class="control has-icons-left">
+
+                            <input type="date" class="input date" id="start-date" name="birthday" min="1900-01-01" max="2020-12-31">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-birthday-cake"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Phone Number</label>
+                        <div class="control has-icons-left">
+
+                            <input id="phone" class="input" type="text" placeholder="(555) 555-5555">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="email" placeholder="name@example.com">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Home Address</label>
+                        <div class="control has-icons-left">
+
+                            <input class="input" type="text" placeholder="1600 Pennsylvania Avenue, Washington DC">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-home"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Doctor</label>
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>Doctor Dre</option>
+                                    <option>Doctor Who</option>
+                                    <option>Doctor Quinn</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Notes</label>
+                        <div class="control">
+                            <textarea class="textarea " placeholder="Text area"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-text">Submit</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-text">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="column is-2">
+        </div>
+    </div>
+
+</div>
+<div id="all-doctors-content" class="tab-content" style="display: none">
+    <div class="columns">
+        <div class="column is-2"></div>
+        <div class="column is-8">
+            <h3 class="title is-3 has-text-centered">Doctors</h3>
+            <table class="table is-bordered is-striped is-narrow is-hoverable" id="doctor-table">
+                <thead>
+                    <tr>
+                        <th>All Doctors</th>
+                    </tr>
+                </thead>
+                <tbody id="doctor-holder">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="column is-2"></div>
+    </div>
+</div>
+<div id="add-doctor-content" class="tab-content" style="display: none">
+    <div class="columns">
+        <div class="column is-2">
+        </div>
+        <div class="column is-8">
+            <h3 class="title is-3">Add a New Doctor</h3>
+            <div class="box">
+                <form action="newPatient" method="post" id="newPatient">
+                    <div class="field">
+                        <label class="label">Full Name</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="text" placeholder="John Doe">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Specialty</label>
+                        <div class="control has-icons-left">
+
+                            <input class="input" type="text" placeholder="Anesthesiologist">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-thumbs-up"></i>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">Phone Number</label>
+                        <div class="control has-icons-left">
+                            <input id="phone" class="input" type="text" placeholder="(555) 555-5555">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="email" placeholder="name@example.com">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-text">Submit</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-text">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="column is-2">
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="add-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title" id="name-container">
+            </p>
+            <button class="delete" aria-label="close" id="add-x"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="container">
+                <div class="box">
+                    <form action="" method="post">
+                        <div class="field">
+                            <label class="label">Birthday</label>
+                            <p class="birthday-container editable">
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Phone Number</label>
+                            <p class="phone-container editable">
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <p class="email-container editable">
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Home Address</label>
+                            <p class="address-container editable">
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Doctors</label>
+                            <div class="doctor-container editable">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Notes</label>
+                            <p class="notes-container editable">
+                            </p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success">Save Changes</button>
+            <button class="button" id="add-cancel-button">Cancel</button>
+        </footer>
+    </div>
+</div>
