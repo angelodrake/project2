@@ -1,5 +1,5 @@
 // Making the phone number auto fill characters () -
-$("#phone").on("change keyup paste", function () {
+$(".phone").on("change keyup paste", function () {
     var output;
     var input = $("#phone").val();
     input = input.replace(/[^0-9]/g, '');
@@ -110,11 +110,14 @@ $("#all-doctors-tab").click(function fillDoctors() {
     })
 });
 
+//on click handlers for new doctors and patients
 $("#newPatientBtn").click(newPatient)
+$("#newDoctorBtn").click(newDoctor)
+
 
 // new patient function
 function newPatient(event) {
-    event.preventDefault();
+    // event.preventDefault();
     var newPatient = {
         name: $("#name").val().trim(),
         birthday: $("#birthday").val().trim(),
@@ -122,8 +125,19 @@ function newPatient(event) {
         address: $("#address").val().trim(),
         email: $("#newEmail").val().trim()
     }
-
     $.post("/api/patients", newPatient);
+}
+// new doctor function
+function newDoctor(event) {
+    // event.preventDefault();
+    var newDoctor = {
+        name: $("#docName").val().trim(),
+        specialty: $("#docSpecialty").val().trim(),
+        phone: $("#docPhone").val().trim(),
+        email: $("#docEmail").val().trim(),
+        PatientId: $("#docPatient").val().trim()
+    }
+    $.post("/api/doctors", newDoctor);
 }
 
 function emptyFields() {
