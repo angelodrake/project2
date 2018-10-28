@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         birthday: {
             allowNull: false,
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             validate: {
                 len: 3
             }
