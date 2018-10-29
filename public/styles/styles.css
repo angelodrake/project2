@@ -21,25 +21,80 @@ html {
   background-size: cover;
 }
 
+.table-holders {
+  padding-top:15px
+}
 
-.box {
+.box, .table-holders {
+  opacity: .95;
+  height: 100%;
+  background-color: rgb(63, 63, 63);
+  color: white;
+}
+
+.label {
+  color: white;
+}
+
+table {
   opacity: .9;
-  height: 100%
+  background-color: rgb(63, 63, 63);
+  color: white;
+  height: 500px;
+  overflow-y: scroll;
+  
 }
 
 .input-add-patient {
   width: 50%;
 }
 
-#patient-table, #doctor-table { 
-  width: 65% 
-}
 
 .table {
-  margin-left: auto;
-  margin-right: auto;
+  background-color: rgb(63, 63, 63);
+  color: white;
+
 }
 
 .hidden-input {
   display: none;
+}
+
+
+.tab-link {
+  background-color: rgb(63, 63, 63);
+  opacity: .8;
+}
+
+.tab-text {
+  color: white;
+}
+
+.tab {
+  padding: 0px 2px;
+}
+
+.tabs {
+  margin: 0px 10%
+}
+
+.tab-link-active {
+  background-color: white;
+  opacity: .8;
+}
+
+.tab-text-active {
+  color: rgb(63, 63, 63);
+}
+
+th {
+  color: white
+}
+
+.label {
+  margin-bottom: 0px ;
+}
+
+#modal-container{
+  width: 100%;
 }
