@@ -87,8 +87,15 @@ table {
   color: rgb(63, 63, 63);
 }
 
-th {
-  color: white
+#doctor-table-header, #patient-table-header {
+  background-color:rgb(63, 63, 63);
+  color: white;
+}
+
+th :hover {
+  color: rgb(63, 63, 63);
+  background-color: white;
+  
 }
 
 .label {
@@ -98,6 +105,18 @@ th {
 #modal-container{
   width: 100%;
 }
+
 .content{
   margin-top: 100px;
 }
+
+.patient-row :hover {
+color: rgb(63, 63, 63);
+background-color: white;
+}
+
+
+.doctor-row :hover {
+  color: rgb(63, 63, 63);
+  background-color: white;
+  }
