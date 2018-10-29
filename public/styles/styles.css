@@ -3,22 +3,20 @@
 }
 
 .title {
-  font-size: 60px
+  font-size: 50px
 }
 .subtitle {
-  font-size: 30px
+  font-size: 22px;
+  color: white;
 }
 
 body, html {
   height: 100%;
+  overflow-y:auto;
 }
 
 html { 
-  background: url("../images/background\ color.png") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: black
 }
 
 .table-holders {
@@ -113,10 +111,49 @@ th :hover {
 .patient-row :hover {
 color: rgb(63, 63, 63);
 background-color: white;
+cursor: pointer; 
 }
 
 
 .doctor-row :hover {
   color: rgb(63, 63, 63);
   background-color: white;
+  cursor: pointer; 
+
   }
+
+.card {
+  background-color: rgb(63,63,63);
+  opacity: .85;
+  width: 40%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  min-width: 325px;
+  min-height: 350px;
+}
+
+#sign-in-box {
+  margin-left:50%;
+}
+
+#sign-in:hover {
+  text-shadow: 0px 0px 8px white;
+}
+
+#sign-up:hover {
+  text-shadow: 0px 0px 8px white;
+}
+
+.body {
+  padding-top: 10%;
+}
+
+#sign-up-prompt {
+  margin-top:4px;
+}
+
+#sign-up-link:hover {
+  color:white;
+}

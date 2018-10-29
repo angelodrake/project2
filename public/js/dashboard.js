@@ -73,7 +73,7 @@ $(document).on("click", ".patient-row", function openModal() {
 });
 
 //updating patient info
-$("#save-changes-button").on("click", function() {
+$("#save-changes-button").on("click", function () {
     var id = $(".id-container").text().trim()
     console.log("update patient " + id)
 
@@ -86,14 +86,14 @@ $("#save-changes-button").on("click", function() {
         email: $(".email-container").text().trim()
     }
 
-    
+
     $.ajax({
         url: "/api/patients",
         method: "PUT",
         data: patient
-    }).then(function() {
+    }).then(function () {
         //page make put call when dashboard loads
-        
+
     })
 })
 
@@ -120,7 +120,11 @@ $("#all-patients-tab").click(function fillPatients() {
         }
 
     })
-});
+}
+    // .then(function () {
+    //     $("#loading-patients").style.display = "none";
+    // })
+);
 
 //filling doctors table
 $("#all-doctors-tab").click(function fillDoctors() {
