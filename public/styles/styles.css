@@ -43,3 +43,7 @@ html {
 .hidden-input {
   display: none;
 }
+
+.content{
+  margin-top: 100px;
+}
