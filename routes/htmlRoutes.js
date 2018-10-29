@@ -13,7 +13,7 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       },
-      include: [db.Doctor, db.Perscription]
+      include: [db.Doctor, db.Perscription, db.Insurance]
     }).then(function (data) {
       console.log(data)
       res.render("patients", data);
