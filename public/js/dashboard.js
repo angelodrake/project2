@@ -56,8 +56,8 @@ $(document).on("click", ".patient-row", function openModal() {
         for (var i = 0; i < data.Doctors.length; i++) {
             $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].specialty + "</p>")
         }
-        for (var i = 0; i < data.Perscriptions.length; i++) {
-            $(".perscription-container").append("<p>" + data.Perscriptions[i].brand + " | " + data.Perscriptions[i].id + "</p>")
+        for (var i = 0; i < data.Prescriptions.length; i++) {
+            $(".prescription-container").append("<p>" + data.Prescriptions[i].brand + " | " + data.Prescriptions[i].id + "</p>")
         }
     })
 });
