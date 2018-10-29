@@ -3,30 +3,43 @@
 }
 
 .title {
-  font-size: 80px
+  font-size: 60px
+}
+.subtitle {
+  font-size: 30px
 }
 
 body, html {
   height: 100%;
 }
 
-html {
-  background: url("../images/background\ color.png") no-repeat center center fixed;
+html { 
+  background: url("../images/background\ color.png") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
  }
 
+
 .box {
-  opacity: .7;
+  opacity: .9;
   height: 100%
 }
 
-.input {
-  padding-top: 20px;
+.input-add-patient {
+  width: 50%;
 }
 
-.a {
-  border-block-end-color: black;
+#patient-table, #doctor-table { 
+  width: 65% 
+}
+
+.table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hidden-input {
+  display: none;
 }
