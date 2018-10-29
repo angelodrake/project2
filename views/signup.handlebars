@@ -1,75 +1,58 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title></title>
-</head>
-
-<body>
-    <form id="signup" name="signup" method="post" action="/signup">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="email" />
-        <label for="firstname">Firstname</label>
-        <input name="firstname" type="text" />
-        <label for="lastname">Lastname</label>
-        <input name="lastname" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn" type="submit" value="Sign Up" />
-    </form>
-
-</body>
-
-</html>
-
-{{!-- commented out for testing
-<div class="block">
-    <section class="hero">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title has-text-centered">Have Patients</h1>
-                <h2 class="subtitle has-text-centered">Sign-up</h2>
-            </div>
+<div class="body">
+    <style>
+        html {
+            background: url("/images/medical-funding.jpg");
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+    <div class="card" id="sign-in-box">
+        <div class="has-text-white card-content">
+            {{!-- <form id="signup" name="signup" method="post" action="/signup">
+                <label for="email">Email Address</label>
+                <input class="text" name="email" type="email" />
+                <label for="firstname">Firstname</label>
+                <input name="firstname" type="text" />
+                <label for="lastname">Lastname</label>
+                <input name="lastname" type="text" />
+                <label for="password">Password</label>
+                <input name="password" type="password" />
+                <input class="btn" type="submit" value="Sign Up" />
+            </form> --}}
+            <form id="signup" name="signup" method="post" action="/signup">
+                <h1 class="title has-text-centered" style="color: white">Sign up</h1>
+                <div class="field">
+                    <div class="control">
+                        <label for="email">Email Address</label>
+                        <input class="text input" name="email" type="email" placeholder="E-mail@example.com">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label for="firstname">First Name</label>
+                        <input class="text input" name="firstname" type="text" placeholder="John Doe">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label for="lastname">Last Name</label>
+                        <input class="text input" name="lastname" type="text" placeholder="John Doe">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label for="password">Password</label>
+                        <input name="password" class="input" type="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="btn button is-inverted is-dark" type="submit" value="Sign Up">
+                    </div>
+                </div>
+            </form>
         </div>
-    </section>
-</div>
-<div class="card">
-    <div class="card-content">
-        <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-                <input class="input" type="text" placeholder="Text input">
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">Username</label>
-            <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="Text input" value="Username">
-                <span class="icon is-small is-left">
-                    <i class="fas fa-user"></i>
-                </span>
-                <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
-                </span>
-            </div>
-            <p class="help is-success">This username is available</p>
-        </div>
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Email input" value="example@gmail">
-                <span class="icon is-small is-left">
-                    <i class="fas fa-envelope"></i>
-                </span>
-                <span class="icon is-small is-right">
-                    <i class="fas fa-exclamation-triangle"></i>
-                </span>
-            </div>
-            <p class="help is-danger">This email is invalid</p>
-        </div>
-        <a href="views/layouts/index.html" id=submit>Submit</a>
     </div>
 </div>
-<div class="column is-8">
-    <img src="/images/doctor.png" alt="Doctor">
-</div> --}}
