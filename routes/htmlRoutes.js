@@ -13,7 +13,7 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       },
-      include: [db.Doctor, db.Prescription]
+      include: [db.Doctor, db.Prescription, db.Insurance]
     }).then(function (data) {
       var patientObj = {
         patient: data.dataValues
