@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Perscription = sequelize.define("Perscription", {
+    var Prescription = sequelize.define("Prescription", {
         name: {
             allowNull: false,
             type: DataTypes.STRING
@@ -14,13 +14,13 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    Perscription.associate = function(models) {
-        Perscription.belongsTo (models.Patient, {
+    Prescription.associate = function(models) {
+        Prescription.belongsTo (models.Patient, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
 
-    return Perscription;
+    return Prescription;
 }
