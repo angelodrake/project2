@@ -1,5 +1,5 @@
 // Making the phone number auto fill characters () -
-$("#phone").on("change keyup paste", function () {
+$(".phone").on("change keyup paste", function () {
     var output;
     var input = $("#phone").val();
     input = input.replace(/[^0-9]/g, '');
@@ -47,7 +47,6 @@ function tabChanger(event, tabId) {
 };
 
 // opening the modal by clicking a patient's row
-
 $(document).on("click", ".patient-row", function openModal() {
     $("#add-modal").addClass("is-active")
     var id = this.id.substring(8)
@@ -58,6 +57,7 @@ $(document).on("click", ".patient-row", function openModal() {
     }).then(function (data) {
         emptyFields()
         $("#name-container").text(data.name)
+        $(".id-container").text(data.id)
         $(".birthday-container").text(data.birthday)
         $(".phone-container").text(data.phone)
         $(".email-container").text(data.email)
@@ -66,12 +66,36 @@ $(document).on("click", ".patient-row", function openModal() {
         for (var i = 0; i < data.Doctors.length; i++) {
             $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].specialty + "</p>")
         }
-        for (var i = 0; i < data.Perscriptions.length; i++) {
-            $(".perscription-container").append("<p>" + data.Perscriptions[i].brand + " | " + data.Perscriptions[i].id + "</p>")
+        for (var i = 0; i < data.Prescriptions.length; i++) {
+            $(".prescription-container").append("<p>" + data.Prescriptions[i].brand + " | " + data.Prescriptions[i].id + "</p>")
         }
     })
-
 });
+
+//updating patient info
+$("#save-changes-button").on("click", function() {
+    var id = $(".id-container").text().trim()
+    console.log("update patient " + id)
+
+    var patient = {
+        id: id,
+        name: $("#name-container").text().trim(),
+        birthday: $(".birthday-container").text().trim(),
+        address: $(".address-container").text().trim(),
+        phone: $(".phone-container").text().trim(),
+        email: $(".email-container").text().trim()
+    }
+
+    
+    $.ajax({
+        url: "/api/patients",
+        method: "PUT",
+        data: patient
+    }).then(function() {
+        //page make put call when dashboard loads
+        
+    })
+})
 
 
 // closing the modal by the cancel button
@@ -115,11 +139,14 @@ $("#all-doctors-tab").click(function fillDoctors() {
     })
 });
 
+//on click handlers for new doctors and patients
 $("#newPatientBtn").click(newPatient)
+$("#newDoctorBtn").click(newDoctor)
+
 
 // new patient function
 function newPatient(event) {
-    event.preventDefault();
+    // event.preventDefault();
     var newPatient = {
         name: $("#name").val().trim(),
         birthday: $("#birthday").val().trim(),
@@ -127,8 +154,19 @@ function newPatient(event) {
         address: $("#address").val().trim(),
         email: $("#newEmail").val().trim()
     }
-
     $.post("/api/patients", newPatient);
+}
+// new doctor function
+function newDoctor(event) {
+    // event.preventDefault();
+    var newDoctor = {
+        name: $("#docName").val().trim(),
+        specialty: $("#docSpecialty").val().trim(),
+        phone: $("#docPhone").val().trim(),
+        email: $("#docEmail").val().trim(),
+        PatientId: $("#docPatient").val().trim()
+    }
+    $.post("/api/doctors", newDoctor);
 }
 
 function emptyFields() {
