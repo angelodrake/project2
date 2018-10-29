@@ -15,6 +15,14 @@
                         <h5>Birthday: {{patient.birthday}}</h5>
                         <h5>Address: {{patient.address}}</h5>
                         <h5>Email: {{patient.email}}</h5>
+                        <h5>Insurance: </h5>
+                        <ul>
+                            {{#each patient.Insurances}}
+                            <li>
+                                <h6>{{company}} | {{Phone}}</h6>
+                            </li>
+                            {{/each}}
+                        </ul>
                     </div>
                     <div class="column is-4">
                         <h5>Doctors: </h5>
