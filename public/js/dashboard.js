@@ -25,15 +25,25 @@ function tabChanger(event, tabId) {
 
     tabLinks = $(".tab");
     for (var i = 0; i < tabLinks.length; i++) {
-        // tabLinks[i].removeClass(" is-active");
-        tabLinks[i].className = tabLinks[i].className.replace(" is-active", "")
+        if ($(".tab").hasClass("is-active")) {
+            $(".is-active").children().removeClass("tab-link-active")
+            $(".is-active").children().addClass("tab-link")
+            $(".tab-link").children().removeClass("tab-text-active")
+            $(".tab-link").children().addClass("tab-text")
+
+            tabLinks[i].className = tabLinks[i].className.replace(" is-active", "")
+
+        }
     };
 
     // $(tabId).
     document.getElementById(tabId).style.display = "block";
     event.currentTarget.className += (" is-active");
-    // this.className += (" is-active");
-
+    // $(".is-active").children().className.replace("tab-link", "tab-link-active");
+    $(".is-active").children().removeClass("tab-link")
+    $(".is-active").children().addClass("tab-link-active")
+    $(".tab-link-active").children().removeClass("tab-text")
+    $(".tab-link-active").children().addClass("tab-text-active")
 };
 
 // opening the modal by clicking a patient's row
@@ -91,11 +101,6 @@ $("#save-changes-button").on("click", function() {
 // closing the modal by the cancel button
 $("#add-cancel-button").on("click", function (event) {
     event.preventDefault();
-    $("#add-modal").removeClass("is-active")
-})
-
-// closing the modal by the x
-$("#add-x").on("click", function (event) {
     $("#add-modal").removeClass("is-active")
 })
 
