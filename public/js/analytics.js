@@ -14,7 +14,6 @@
             var result = styleWidth(d)
 
             var newDiv = $("<div class ='bar hidden'>")
-            // newDiv.attr("class", "label")
             newDiv.attr("style", "width:" + result)
             newDiv.text(d.name + " ------ " + result)
             $(".chart").append(newDiv)
@@ -29,6 +28,3 @@
         $(document).on("click", "#toggle", showData)
             
 
-        // d.sort(function(a,b) {
-        //     return Number(b.value) - Number(a.value);
-        // })

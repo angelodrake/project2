@@ -30,7 +30,11 @@
     </ul>
 </div>
 
-<img id="starting-icon" src="/images/195924_switzerland_256x256.png" alt="doctor image" style="margin-left:35%; margin-right: 35%; width: 30%; margin-top:5%">
+<div id="starting-icon" style="margin-left:40%; margin-right:40%; width: 20%; margin-top:5%; background-color: rgb(63, 63, 63); opacity: .9;
+">
+    <h2 class="title is-2 is-white has-text-centered">Patient Link</h2>
+    <img src="/images/195924_switzerland_256x256.png" alt="doctor link" style="padding:25px; margin-left:25%; margin-right: 25%; width: 50%;">
+</div>
 
 
 <div id="logout-box" class="has-text-centered">
@@ -54,6 +58,9 @@
         background-color: rgb(63, 63, 63);
         color: white;
     }
+    body {
+        overflow-x:hidden;
+    }
 </style>
 
 <div id="all-patients-content" class="tab-content" style="display: none">
@@ -62,6 +69,11 @@
         <div class="column is-6">
             <div style="overflow:auto; height: 600px" class="table-holders">
                 <h3 class="title is-2 has-text-centered"> <strong>Patients</strong></h3>
+                <div class="search-holder has-text-centered">
+                    <input class="input search-bar" id="searchInput" onkeyup="searchFunction()" type="text" placeholder="Search patient name">
+                </div>
+                <br>
+
                 <table class="table is-bordered is-narrow" id="patient-table">
                     <thead>
                         <th id="patient-table-header">
@@ -73,8 +85,6 @@
                     </tbody>
                 </table>
             </div>
-            <a class="is-loading is-large"></a>
-
         </div>
         <div class="column is-3"></div>
     </div>
@@ -196,6 +206,12 @@
         <div class="column is-6">
             <div style="overflow:auto; height: 600px" class="table-holders">
                 <h3 class="title is-2 has-text-centered"><strong>Doctors</strong></h3>
+                <div class="search-holder has-text-centered">
+                    <input class="input search-bar" id="drSearchInput" onkeyup="drSearchFunction()" type="text"
+                        placeholder="Search doctor name">
+                </div>
+                <br>
+
                 <table class="table is-bordered is-narrow" id="doctor-table">
                     <thead>
                         <tr>
