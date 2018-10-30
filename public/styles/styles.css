@@ -20,7 +20,8 @@ html {
 }
 
 .table-holders {
-  padding-top:15px
+  padding-top:15px;
+  height: 600px
 }
 
 .box, .table-holders {
@@ -38,9 +39,6 @@ table {
   opacity: .9;
   background-color: rgb(63, 63, 63);
   color: white;
-  height: 500px;
-  overflow-y: scroll;
-  
 }
 
 .input-add-patient {
@@ -171,3 +169,12 @@ cursor: pointer;
 h5 {
   color: white;
 }
+
+.search-bar {
+  width: 50%;
+}
+
+.patient-td{
+  height: 33px;
+}
+
