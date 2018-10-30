@@ -1,20 +1,26 @@
-// Making the phone number auto fill characters () -
-$(".phone").on("change keyup paste", function () {
-    var output;
-    var input = $("#phone").val();
-    input = input.replace(/[^0-9]/g, '');
-    var area = input.substr(0, 3);
-    var pre = input.substr(3, 3);
-    var tel = input.substr(6, 4);
-    if (area.length < 3) {
-        output = "(" + area;
-    } else if (area.length == 3 && pre.length < 3) {
-        output = "(" + area + ")" + " " + pre;
-    } else if (area.length == 3 && pre.length == 3) {
-        output = "(" + area + ")" + " " + pre + "-" + tel;
+// Making the phone number auto fill characters ()
+function formatPhone(id) {
+    return function () {
+        var output;
+        var input = $(id).val();
+        input = input.replace(/[^0-9]/g, '');
+        var area = input.substr(0, 3);
+        var pre = input.substr(3, 3);
+        var tel = input.substr(6, 4);
+        if (area.length < 3) {
+            output = "(" + area;
+        } else if (area.length == 3 && pre.length < 3) {
+            output = "(" + area + ")" + " " + pre;
+        } else if (area.length == 3 && pre.length == 3) {
+            output = "(" + area + ")" + " " + pre + "-" + tel;
+        }
+        $(id).val(output);
+
     }
-    $("#phone").val(output);
-});
+} -
+    $(".phone").on("change keyup paste", formatPhone("#phone"));
+$(".phone").on("change keyup paste", formatPhone("#docPhone"));
+
 
 //changing tabs 
 function tabChanger(event, tabId) {
@@ -153,7 +159,7 @@ $("#newDoctorBtn").click(newDoctor)
 
 // new patient function
 function newPatient(event) {
- 
+
     var newPatient = {
         name: $("#name").val().trim(),
         birthday: $("#birthday").val().trim(),
@@ -169,7 +175,7 @@ function newPatient(event) {
 }
 // new doctor function
 function newDoctor(event) {
-    
+
     var newDoctor = {
         name: $("#docName").val().trim(),
         specialty: $("#docSpecialty").val().trim(),
@@ -205,4 +211,46 @@ function matchInput() {
     $(this).siblings(".editable").text(currentEditable);
     $(this).siblings().show();
     // $(this).siblings().focus();
+}
+
+function searchFunction() {
+    // Declare variables 
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("patient-table");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+function drSearchFunction() {
+    // Declare variables 
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("drSearchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("doctor-table");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
 }

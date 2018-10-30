@@ -30,21 +30,18 @@
                 <hr>
 
                 <div class="columns">
-                    <div class="column is-4">
+                    <div class="column is-3">
                         <h5 style="color: white">Patient ID: {{patient.id}}</h5>
                         <h5 style="color: white">Birthday: {{patient.birthday}}</h5>
+                        <h5 style="color: white">Blood Type: {{patient.bloodType}}</h5>
                         <h5 style="color: white">Address: {{patient.address}}</h5>
                         <h5 style="color: white">Email: {{patient.email}}</h5>
-                        <h5 style="color: white">Insurance: </h5>
-                        <ul>
-                            {{#each patient.Insurances}}
-                            <li>
-                                <h6 style="color: white">{{company}} | {{Phone}}</h6>
-                            </li>
-                            {{/each}}
-                        </ul>
+                        <h5 style="color: white">Emergency Contact: <br> {{patient.emergencyContact}} <br>
+                            {{patient.contactPhone}}
+                        </h5>
+
                     </div>
-                    <div class="column is-4">
+                    <div class="column is-3">
                         <h5 style="color: white">Doctors: </h5>
                         <ul>
                             {{#each patient.Doctors}}
@@ -54,7 +51,7 @@
                             {{/each}}
                         </ul>
                     </div>
-                    <div class="column is-4">
+                    <div class="column is-3">
                         <h5 style="color: white">Prescriptions: </h5>
                         <ul>
                             {{#each patient.Prescriptions}}
@@ -64,8 +61,19 @@
                             {{/each}}
                         </ul>
                     </div>
-                    <h5>Blood Type: {{patient.bloodType}}</h5>
-                    <h5>Emergency Contact: {{patient.emergencyContact}} | {{patient.contactPhone}} </h5>
+                    <div class="column is-3">
+                        <h5 style="color: white">Insurance: </h5>
+                        <ul>
+                            {{#each patient.Insurances}}
+                            <li>
+                                <h6 style="color: white">{{company}} | {{Phone}}</h6>
+                            </li>
+                            {{/each}}
+                        </ul>
+
+
+
+                    </div>
                 </div>
             </div>
         </div>
