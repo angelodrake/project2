@@ -1,0 +1,53 @@
+<head>
+    <title>Analytics</title>
+    <style type="text/css">
+        .chart .bar {
+            background-color: steelblue;
+            position: relative;
+            height: 35px;
+            margin-bottom: 5px;
+            text-align: right;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-right: 10px;
+            padding-top: 10px;
+            margin-right: 10px;
+        }
+
+        .bar:hover {
+            background: green;
+        }
+
+        .name {
+            position: absolute;
+            margin-left: 10px;
+        }
+
+        h1,
+        h3 {
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            transition-delay: .5;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+
+
+<h1>Healthcare Key Performance Indicators</h1>
+<h3>(Month of October - (NA): National Average)</h3>
+<div class="main">
+    <div class="chart"></div>
+
+    <button id="toggle">Show</button>
+</div>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script type="text/javascript" src="/js/analytics.js"></script>

@@ -1,4 +1,6 @@
 var db = require("../models");
+var fs = require("fs")
+var path = require("path")
 
 module.exports = function (app) {
   // Get all patients
@@ -15,6 +17,13 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+  // Get all barchart data
+  app.get("/api/analytics", function (req, res) {
+      fs.readFile(path.join(__dirname, "../public/data/barchart.tsv"), function(err,data) {
+        if (err) throw err;
+        res.send(data)
+      })
+    });
 
   //get single patient
   app.get("/api/patients/:id", function (req, res) {
