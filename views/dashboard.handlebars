@@ -189,6 +189,7 @@
     </div>
 
 </div>
+
 <div id="all-doctors-content" class="tab-content" style="display: none">
     <div class="columns">
         <div class="column is-3"></div>
@@ -212,6 +213,7 @@
         <div class="column is-3"></div>
     </div>
 </div>
+
 <div id="add-doctor-content" class="tab-content" style="display: none">
     <div class="columns">
         <div class="column is-3">
@@ -376,6 +378,58 @@
         <footer class="modal-card-foot">
             <button class="button is-dark" id="save-changes-button">Save Changes</button>
             <button class="button" id="add-cancel-button">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="doc-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title" id="doc-name-container">
+            </p>
+        </header>
+        <section class="modal-card-body">
+            <div class="container" id="modal-container">
+                <div class="box" id="modal-box">
+                    <form action="" method="post">
+
+                        <div class="field">
+                            <label class="label">Doctor ID</label>
+                            <input class="input hidden-input" type="text">
+                            <p class="doc-id-container">
+
+                            </p>
+
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Specialty</label>
+                            <input class="input hidden-input" type="text">
+                            <p class="doc-specialty-container editable">
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Phone Number</label>
+                            <input class="input hidden-input" type="text">
+                            <p class="doc-phone-container">
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <input class="input hidden-input" type="email">
+                            <p class="doc-email-container editable">
+                            </p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button" id="doc-cancel-button">Cancel</button>
         </footer>
     </div>
 </div>

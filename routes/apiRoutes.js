@@ -16,6 +16,19 @@ module.exports = function (app) {
     });
   });
 
+  //get single doctor
+  app.get("/api/doctors/:id", function (req, res) {
+
+    db.Doctor.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (data) {
+      res.json(data);
+    });
+  });
+
+
   //get single patient
   app.get("/api/patients/:id", function (req, res) {
 
