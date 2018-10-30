@@ -18,8 +18,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                not: ["[a-z]", "i"],
-                len: 10
+                not: ["[a-z]", "i"]
             }
         },
         email: {
