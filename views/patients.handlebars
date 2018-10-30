@@ -1,13 +1,23 @@
 <div id="patient-content" class="content" style="display: block">
     <style>
         html {
-            background: url("/images/shutterstock_594717740.jpg");
+            background: url("/images/patients.jpg");
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
         }
+
+        h5 {
+            color: white
+        }
     </style>
+
+    <div id="logout-box" class="has-text-centered">
+        <a href="\logout" id="sign-in">
+            <h2 class="subtitle" style="padding-top: 3px; font-size: 22px; color: white"> Sign out</h2>
+        </a>
+    </div>
 
     <div class="columns">
         <div class="column is-2"></div>
@@ -16,40 +26,40 @@
             <br>
             <div class="box">
 
-                <h2>{{patient.name}}</h2>
+                <h2 style="color: white">{{patient.name}}</h2>
                 <hr>
 
                 <div class="columns">
                     <div class="column is-4">
-                        <h5>Patient ID: {{patient.id}}</h5>
-                        <h5>Birthday: {{patient.birthday}}</h5>
-                        <h5>Address: {{patient.address}}</h5>
-                        <h5>Email: {{patient.email}}</h5>
-                        <h5>Insurance: </h5>
+                        <h5 style="color: white">Patient ID: {{patient.id}}</h5>
+                        <h5 style="color: white">Birthday: {{patient.birthday}}</h5>
+                        <h5 style="color: white">Address: {{patient.address}}</h5>
+                        <h5 style="color: white">Email: {{patient.email}}</h5>
+                        <h5 style="color: white">Insurance: </h5>
                         <ul>
                             {{#each patient.Insurances}}
                             <li>
-                                <h6>{{company}} | {{Phone}}</h6>
+                                <h6 style="color: white">{{company}} | {{Phone}}</h6>
                             </li>
                             {{/each}}
                         </ul>
                     </div>
                     <div class="column is-4">
-                        <h5>Doctors: </h5>
+                        <h5 style="color: white">Doctors: </h5>
                         <ul>
                             {{#each patient.Doctors}}
                             <li>
-                                <h6>{{name}}, {{specialty}}</h6>
+                                <h6 style="color: white">{{name}}, {{specialty}}</h6>
                             </li>
                             {{/each}}
                         </ul>
                     </div>
                     <div class="column is-4">
-                        <h5>Prescriptions: </h5>
+                        <h5 style="color: white">Prescriptions: </h5>
                         <ul>
                             {{#each patient.Prescriptions}}
                             <li>
-                                <h6>{{brand}}</h6>
+                                <h6 style="color: white">{{brand}}</h6>
                             </li>
                             {{/each}}
                         </ul>
