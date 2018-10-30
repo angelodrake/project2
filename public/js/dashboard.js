@@ -67,7 +67,7 @@ $(document).on("click", ".patient-row", function openModal() {
         $(".contactPhone-container").text(data.contactPhone)
         //this Doctors is currently capitalized so be careful if someone changes it.
         for (var i = 0; i < data.Doctors.length; i++) {
-            $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].specialty + "</p>")
+            $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].specialty + " | " + data.Doctors[i].phone + "</p>")
         }
         for (var i = 0; i < data.Prescriptions.length; i++) {
             $(".prescription-container").append("<p>" + data.Prescriptions[i].brand + " | " + data.Prescriptions[i].id + "</p>")
@@ -206,7 +206,3 @@ function matchInput() {
     $(this).siblings().show();
     // $(this).siblings().focus();
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> d52eac1d565a013a0c592b1e84063c75762534c6
