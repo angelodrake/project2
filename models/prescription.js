@@ -1,9 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var Prescription = sequelize.define("Prescription", {
-        name: {
-            allowNull: false,
-            type: DataTypes.STRING
-        },
         brand: {
             allowNull: false,
             type: DataTypes.STRING

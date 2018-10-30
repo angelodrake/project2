@@ -49,7 +49,7 @@
                         <ul>
                             {{#each patient.Doctors}}
                             <li>
-                                <h6 style="color: white">{{name}}, {{specialty}}</h6>
+                                <h6 style="color: white">{{name}}, {{specialty}}, {{phone}}</h6>
                             </li>
                             {{/each}}
                         </ul>
@@ -64,6 +64,8 @@
                             {{/each}}
                         </ul>
                     </div>
+                    <h5>Blood Type: {{patient.bloodType}}</h5>
+                    <h5>Emergency Contact: {{patient.emergencyContact}} | {{patient.contactPhone}} </h5>
                 </div>
             </div>
         </div>

@@ -31,13 +31,16 @@ module.exports = function (app) {
 
   // Create a new patient
   app.post("/api/patients", function (req, res) {
-   
+    console.log(req.body)
     db.Patient.create({
       name: req.body.name,
       birthday: req.body.birthday,
       address: req.body.address,
       phone: req.body.phone,
-      email: req.body.email
+      email: req.body.email,
+      bloodType: req.body.bloodType,
+      emergencyContact: req.body.emergencyContact,
+      contactPhone: req.body.contactPhone
     }).then(function (data) {
       res.json(data);
     });
@@ -45,13 +48,16 @@ module.exports = function (app) {
 
   //update patient
   app.put("/api/patients", function(req, res) {
-    console.log(req.body.name)
+    
     db.Patient.update({
       name: req.body.name,
       birthday: req.body.birthday,
       address: req.body.address,
       phone: req.body.phone,
-      email: req.body.email},
+      email: req.body.email,
+      bloodType: req.body.bloodType,
+      emergencyContact: req.body.emergencyContact,
+      contactPhone: req.body.contactPhone},
       {
         where: {
           id: req.body.id

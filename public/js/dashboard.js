@@ -51,7 +51,6 @@ function tabChanger(event, tabId) {
 $(document).on("click", ".patient-row", function openModal() {
     $("#add-modal").addClass("is-active")
     var id = this.id.substring(8)
-    console.log(id)
     $.ajax({
         url: "/api/patients/" + id,
         method: "GET"
@@ -63,9 +62,12 @@ $(document).on("click", ".patient-row", function openModal() {
         $(".phone-container").text(data.phone)
         $(".email-container").text(data.email)
         $(".address-container").text(data.address)
+        $(".bloodType-container").text(data.bloodType)
+        $(".emergencyContact-container").text(data.emergencyContact)
+        $(".contactPhone-container").text(data.contactPhone)
         //this Doctors is currently capitalized so be careful if someone changes it.
         for (var i = 0; i < data.Doctors.length; i++) {
-            $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].specialty + "</p>")
+            $(".doctor-container").append("<p>" + data.Doctors[i].name + " | " + data.Doctors[i].specialty + " | " + data.Doctors[i].phone + "</p>")
         }
         for (var i = 0; i < data.Prescriptions.length; i++) {
             $(".prescription-container").append("<p>" + data.Prescriptions[i].brand + " | " + data.Prescriptions[i].id + "</p>")
@@ -76,7 +78,6 @@ $(document).on("click", ".patient-row", function openModal() {
 //updating patient info
 $("#save-changes-button").on("click", function () {
     var id = $(".id-container").text().trim()
-    console.log("update patient " + id)
 
     var patient = {
         id: id,
@@ -84,10 +85,11 @@ $("#save-changes-button").on("click", function () {
         birthday: $(".birthday-container").text().trim(),
         address: $(".address-container").text().trim(),
         phone: $(".phone-container").text().trim(),
-        email: $(".email-container").text().trim()
+        email: $(".email-container").text().trim(),
+        bloodType: $(".bloodType-container").text().trim(),
+        emergencyContact: $(".emergencyContact-container").text().trim(),
+        contactPhone: $(".contactPhone-container").text().trim()
     }
-
-
     $.ajax({
         url: "/api/patients",
         method: "PUT",
@@ -151,19 +153,23 @@ $("#newDoctorBtn").click(newDoctor)
 
 // new patient function
 function newPatient(event) {
-    // event.preventDefault();
+ 
     var newPatient = {
         name: $("#name").val().trim(),
         birthday: $("#birthday").val().trim(),
         phone: $("#phone").val().trim(),
         address: $("#address").val().trim(),
-        email: $("#newEmail").val().trim()
+        email: $("#newEmail").val().trim(),
+        bloodType: $("#newBloodType").val().trim(),
+        emergencyContact: $("#newEmergency").val().trim(),
+        contactPhone: $("#newEmergencyPhone").val().trim()
     }
+    console.log(newPatient)
     $.post("/api/patients", newPatient);
 }
 // new doctor function
 function newDoctor(event) {
-    // event.preventDefault();
+    
     var newDoctor = {
         name: $("#docName").val().trim(),
         specialty: $("#docSpecialty").val().trim(),
@@ -176,9 +182,9 @@ function newDoctor(event) {
 
 function emptyFields() {
     $(".doctor-container").empty();
+    $(".prescription-container").empty();
+
 }
-
-
 
 
 //open the editor for any field of the individual patient

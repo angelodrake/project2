@@ -88,7 +88,7 @@
         <div class="column is-6">
             <div class="box">
                 <h3 class="title is-2 has-text-centered"><strong>Add a New Patient</strong></h3>
-                <form action="dashboard" method="get" id="dashboard">
+                <form action="dashboard" method="" id="dashboard">
                     <div class="field">
                         <label class="label">Full Name</label>
                         <div class="control has-icons-left">
@@ -142,11 +142,34 @@
                             </span>
                         </div>
                     </div>
-
                     <div class="field">
-                        <label class="label">Notes</label>
-                        <div class="control">
-                            <textarea class="textarea " placeholder="Text area"></textarea>
+                        <label class="label">Blood Type</label>
+                        <div class="control has-icons-left">
+
+                            <input class="input" id="newBloodType" type="text" placeholder="O">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Emergency Contact</label>
+                        <div class="control has-icons-left">
+
+                            <input class="input" id="newEmergency" type="text" placeholder="John Doe">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Emergency Phone</label>
+                        <div class="control has-icons-left">
+
+                            <input class="input" id="newEmergencyPhone" type="text" placeholder="John Doe">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
                         </div>
                     </div>
 
@@ -327,11 +350,22 @@
                             <div class="prescription-container">
                             </div>
                         </div>
-
                         <div class="field">
-                            <label class="label">Notes</label>
+                            <label class="label">Blood Type</label>
                             <input class="input hidden-input" type="text">
-                            <p class="notes-container">
+                            <p class="bloodType-container">
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Emergency Contact</label>
+                            <input class="input hidden-input" type="text">
+                            <p class="emergencyContact-container">
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Emergency Contact Phone</label>
+                            <input class="input hidden-input" type="text">
+                            <p class="contactPhone-container">
                             </p>
                         </div>
 

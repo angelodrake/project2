@@ -3,23 +3,14 @@ module.exports = function(sequelize, DataTypes) {
         name: {
             allowNull: false,
             type: DataTypes.STRING,
-            validate: {
-                len: 3
-            }
         },
         birthday: {
             allowNull: false,
             type: DataTypes.STRING,
-            validate: {
-                len: 3
-            }
         },
         address: {
             allowNull: false,
             type: DataTypes.TEXT,
-            validate: {
-                len: 3
-            }
         },
         phone: {
             allowNull: false,
@@ -31,8 +22,24 @@ module.exports = function(sequelize, DataTypes) {
         email: {
             allowNull: false,
             type: DataTypes.STRING,
+        },
+        bloodType: {
+            allowNull: false,
+            type: DataTypes.STRING,
+        },
+        notes: {
+            allowNull: true,
+            type: DataTypes.STRING,
+        },
+        emergencyContact: {
+            allowNull: false,
+            type: DataTypes.STRING,
+        },
+        contactPhone: {
+            allowNull: false,
+            type: DataTypes.STRING,
             validate: {
-                len: 3
+                not: ["[a-z]", "i"],
             }
         }
     });

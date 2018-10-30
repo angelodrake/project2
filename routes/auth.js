@@ -1,4 +1,5 @@
 var authController = require("../controllers/authcontroller.js");
+var db = require("../models");
  
 module.exports = function(app, passport) {
  
@@ -22,6 +23,8 @@ module.exports = function(app, passport) {
         failureRedirect: "/signup"
 
     }))
+
+    //authentication check function
     function isLoggedIn(req, res, next) {
  
         if (req.isAuthenticated())
@@ -31,5 +34,21 @@ module.exports = function(app, passport) {
         res.redirect("/signin");
      
     }
-    app.get("/dashboard",isLoggedIn, authController.dashboard);
+    //when the dashboard is accessed perform authentication check
+    app.get("/dashboard", isLoggedIn, authController.dashboard);
+
+    //router for qr scanner
+  app.get("/patients/:id", isLoggedIn, function(req, res) {
+    db.Patient.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.Doctor, db.Prescription, db.Insurance]
+    }).then(function (data) {
+      var patientObj = {
+        patient: data.dataValues
+      }
+      res.render("patients", patientObj);
+  })
+})
 }
