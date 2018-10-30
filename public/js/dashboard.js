@@ -152,6 +152,29 @@ $("#all-doctors-tab").click(function fillDoctors() {
     })
 });
 
+// opening the modal by clicking a doctor's row
+$(document).on("click", ".doctor-row", function openModal() {
+    $("#doc-modal").addClass("is-active")
+    var id = this.id.substring(7)
+    $.ajax({
+        url: "/api/doctors/" + id,
+        method: "GET"
+    }).then(function (data) {
+        emptyFields()
+        $("#doc-name-container").text(data.name)
+        $(".doc-specialty-container").text(data.specialty)
+        $(".doc-id-container").text(data.id)
+        $(".doc-phone-container").text(data.phone)
+        $(".doc-email-container").text(data.email)
+    })
+});
+
+// closing the doc modal by the cancel button
+$("#doc-cancel-button").on("click", function (event) {
+    event.preventDefault();
+    $("#doc-modal").removeClass("is-active")
+})
+
 //on click handlers for new doctors and patients
 $("#newPatientBtn").click(newPatient)
 $("#newDoctorBtn").click(newDoctor)
