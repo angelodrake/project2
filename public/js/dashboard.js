@@ -22,8 +22,9 @@ function tabChanger(event, tabId) {
     for (var i = 0; i < tabContent.length; i++) {
         tabContent[i].style.display = "none";
     };
-
     tabLinks = $(".tab");
+    $("#starting-icon").hide();
+
     for (var i = 0; i < tabLinks.length; i++) {
         if ($(".tab").hasClass("is-active")) {
             $(".is-active").children().removeClass("tab-link-active")
@@ -205,4 +206,7 @@ function matchInput() {
     $(this).siblings().show();
     // $(this).siblings().focus();
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d52eac1d565a013a0c592b1e84063c75762534c6
