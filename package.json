@@ -1,5 +1,5 @@
 {
-  "name": "Patient Database System",
+  "name": "patient-link",
   "version": "1.0.0",
   "description": "Project 2 Starter",
   "main": "server.js",
