@@ -20,6 +20,7 @@ function formatPhone(id) {
 } -
     $(".phone").on("change keyup paste", formatPhone("#phone"));
 $(".phone").on("change keyup paste", formatPhone("#docPhone"));
+$(".phone").on("change keyup paste", formatPhone("#newEmergencyPhone"));
 
 
 //changing tabs 
