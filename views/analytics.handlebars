@@ -1,12 +1,3 @@
-<head>
-    <title>Analytics</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script type="text/javascript" src="/js/analytics.js"></script>
-</head>
-
-
 <div id="patient-content" class="content" style="display: block">
     <style>
         html {
@@ -34,6 +25,10 @@
             margin-right: 10px;
         }
 
+       .chart {
+           overflow: hidden;
+       }
+
         .bar:hover {
             background: green;
         }
@@ -53,29 +48,26 @@
     </style>
 
     <div id="logout-box" class="has-text-centered navigation-box">
-        <a href="\logout" id="sign-in">
-            <h2 class="subtitle" style="padding-top: 3px; font-size: 22px; color: white"> Analytics</h2>
+        <a href="\logout" class="hover-glow">
+            <h2 class="subtitle" style="color: white; font-size: 20px; margin-top: 3px"> Sign out</h2>
         </a>
     </div>
 
-
     <div id="dashboard-box" class="has-text-centered navigation-box">
-        <a href="\logout" style="color: white">
-            <h2 class="subtitle"> Dashboard</h2>
+        <a href="\dashboard" class="hover-glow">
+            <h2 class="subtitle" style="color: white; font-size: 20px; margin-top: 3px"> Dashboard</h2>
         </a>
     </div>
 
     <div class="columns">
         <div class="column is-2"></div>
         <div class="column is-8">
-            <br>
-            <br>
             <div class="box">
 
                 <h1 style="color:white" class="has-text-centered">Healthcare Key Performance Indicators</h1>
                 <h3 style="color:white" class="has-text-centered">Month Of October</h3>
                 <h3 style="color:white" class="has-text-centered">(CMC): Charlotte Medical Center -- (NA): National
-                    Average)</h3>
+                    Average</h3>
                 <h3 style="color:white" class="has-text-centered"></h3>
                 <div class="main">
                     <div class="chart"></div>
@@ -88,3 +80,7 @@
         <div class="column is-2"></div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script type="text/javascript" src="/js/analytics.js"></script>

@@ -91,7 +91,6 @@ table {
 th :hover {
   color: rgb(63, 63, 63);
   background-color: white;
-  
 }
 
 .label {
@@ -111,7 +110,6 @@ color: rgb(63, 63, 63);
 background-color: white;
 cursor: pointer; 
 }
-
 
 .doctor-row :hover {
   color: rgb(63, 63, 63);
@@ -140,11 +138,11 @@ cursor: pointer;
   margin-left:50%;
 }
 
-#sign-in:hover {
+/* #sign-in:hover {
   text-shadow: 0px 0px 8px white;
-}
+} */
 
-#sign-up:hover {
+.hover-glow:hover {
   text-shadow: 0px 0px 8px white;
 }
 
@@ -160,7 +158,7 @@ cursor: pointer;
   color:white;
 }
 
-#logout-box {
+.navigation-box {
   position: fixed;
   bottom:20px;;
   right:20px;
@@ -170,7 +168,7 @@ cursor: pointer;
   opacity: .8;
 }
 
-#dashboard-box {
+#analytics-box, #dashboard-box {
   position: fixed;
   bottom:60px;;
   right:20px;
@@ -191,4 +189,3 @@ h5 {
 .patient-td{
   height: 33px;
 }
-
