@@ -132,6 +132,10 @@ cursor: pointer;
   min-height: 350px;
 }
 
+#home:hover {
+  font-weight: bold;
+}
+
 #sign-in-box {
   margin-left:50%;
 }
