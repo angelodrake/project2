@@ -26,7 +26,7 @@ function showData() {
     $(".bar").addClass("show")
     $(".bar").animate({
         left: "+=" + wide,
-    }, 1000
+    }, 1500
 
     )
 

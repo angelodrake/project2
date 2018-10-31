@@ -47,7 +47,6 @@ function tabChanger(event, tabId) {
     // $(tabId).
     document.getElementById(tabId).style.display = "block";
     event.currentTarget.className += (" is-active");
-    // $(".is-active").children().className.replace("tab-link", "tab-link-active");
     $(".is-active").children().removeClass("tab-link")
     $(".is-active").children().addClass("tab-link-active")
     $(".tab-link-active").children().removeClass("tab-text")
@@ -113,6 +112,7 @@ $("#add-cancel-button").on("click", function (event) {
     event.preventDefault();
     $("#add-modal").removeClass("is-active")
 })
+
 
 //filling patients table
 $("#all-patients-tab").click(function fillPatients() {

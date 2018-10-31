@@ -1,11 +1,11 @@
 name	value
 CMC Treament Cost  KPI	100
+NA Treament Cost KPI	76
 CMC Patient Wait Time  KPI	65
+NA Patient Wait Time KPI	46
 CMC ER Wait Time  KPI	76
+NA ER Wait Time KPI	37
 CMC Patient Saftey  KPI	90
-CMC Average Hospital Stay  KPI	78
-Treament Cost KPI (NA)	76
-Patient Wait Time KPI (NA)	46
-ER Wait Time KPI (NA)	37
-Patient Saftey KPI (NA)	86
-Average Hospital Stay KPI (NA)	80
+NA Patient Saftey KPI	86
+CMC Hospital Stay Average  KPI	78
+NA Hospital Stay Average KPI	80
