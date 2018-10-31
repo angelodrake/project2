@@ -51,4 +51,8 @@ module.exports = function(app, passport) {
       res.render("patients", patientObj);
   })
 })
+
+app.get('/analytics', isLoggedIn, function (req, res) {
+  res.render("analytics")
+});
 }
