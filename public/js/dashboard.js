@@ -1,8 +1,35 @@
 // Making the phone number auto fill characters ()
-function formatPhone(id) {
-    return function () {
+// function formatPhone(e, id) {
+//     if (e.keyCode !== 8) {
+
+//         return function () {
+//             var output;
+//             var input = $(id).val();
+//             input = input.replace(/[^0-9]/g, '');
+//             var area = input.substr(0, 3);
+//             var pre = input.substr(3, 3);
+//             var tel = input.substr(6, 4);
+//             if (area.length < 3) {
+//                 output = "(" + area;
+//             } else if (area.length == 3 && pre.length < 3) {
+//                 output = "(" + area + ")" + " " + pre;
+//             } else
+//                 if (area.length == 3 && pre.length == 3) {
+//                     output = "(" + area + ")" + " " + pre + "-" + tel;
+//                 }
+//             $(id).val(output);
+
+//         }
+//     }
+// }
+// $("#phone").keyup(formatPhone(e, "#phone"));
+// $("#docPhone").keyup(formatPhone(e, "#docPhone"));
+// $("#newEmergencyPhone").keyup(formatPhone(e, "#newEmergencyPhone"));
+
+$("#phone").keyup(function (e) {
+    if (e.keyCode !== 8) {
         var output;
-        var input = $(id).val();
+        var input = $("#phone").val();
         input = input.replace(/[^0-9]/g, '');
         var area = input.substr(0, 3);
         var pre = input.substr(3, 3);
@@ -11,16 +38,55 @@ function formatPhone(id) {
             output = "(" + area;
         } else if (area.length == 3 && pre.length < 3) {
             output = "(" + area + ")" + " " + pre;
-        } else if (area.length == 3 && pre.length == 3) {
-            output = "(" + area + ")" + " " + pre + "-" + tel;
-        }
-        $(id).val(output);
-
+        } else
+            if (area.length == 3 && pre.length == 3) {
+                output = "(" + area + ")" + " " + pre + "-" + tel;
+            }
+        $("#phone").val(output);
     }
-} -
-    $(".phone").on("change keyup paste", formatPhone("#phone"));
-$(".phone").on("change keyup paste", formatPhone("#docPhone"));
-$(".phone").on("change keyup paste", formatPhone("#newEmergencyPhone"));
+})
+
+$("#docPhone").keyup(function (e) {
+    if (e.keyCode !== 8) {
+        var output;
+        var input = $("#docPhone").val();
+        input = input.replace(/[^0-9]/g, '');
+        var area = input.substr(0, 3);
+        var pre = input.substr(3, 3);
+        var tel = input.substr(6, 4);
+        if (area.length < 3) {
+            output = "(" + area;
+        } else if (area.length == 3 && pre.length < 3) {
+            output = "(" + area + ")" + " " + pre;
+        } else
+            if (area.length == 3 && pre.length == 3) {
+                output = "(" + area + ")" + " " + pre + "-" + tel;
+            }
+        $("#docPhone").val(output);
+    }
+})
+
+
+$("#newEmergencyPhone").keyup(function (e) {
+    if (e.keyCode !== 8) {
+        var output;
+        var input = $("#newEmergencyPhone").val();
+        input = input.replace(/[^0-9]/g, '');
+        var area = input.substr(0, 3);
+        var pre = input.substr(3, 3);
+        var tel = input.substr(6, 4);
+        if (area.length < 3) {
+            output = "(" + area;
+        } else if (area.length == 3 && pre.length < 3) {
+            output = "(" + area + ")" + " " + pre;
+        } else
+            if (area.length == 3 && pre.length == 3) {
+                output = "(" + area + ")" + " " + pre + "-" + tel;
+            }
+        $("#newEmergencyPhone").val(output);
+    }
+})
+
 
 
 //changing tabs 
