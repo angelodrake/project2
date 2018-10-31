@@ -189,3 +189,7 @@ h5 {
 .patient-td{
   height: 33px;
 }
+
+body {
+  overflow-x:hidden;
+}

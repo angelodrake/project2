@@ -64,9 +64,6 @@
         background-color: rgb(63, 63, 63);
         color: white;
     }
-    body {
-        overflow-x:hidden;
-    }
 </style>
 
 <div id="all-patients-content" class="tab-content" style="display: none">
@@ -76,7 +73,7 @@
             <div style="overflow:auto; height: 600px" class="table-holders">
                 <h3 class="title is-2 has-text-centered"> <strong>Patients</strong></h3>
                 <div class="search-holder has-text-centered">
-                    <input class="input search-bar" id="searchInput" onkeyup="searchFunction()" type="text" placeholder="Search patient name">
+                    <input class="input search-bar" id="searchInput" onkeyup="searchFunction()" type="text" placeholder="Search patient name or ID">
                 </div>
                 <br>
 
@@ -164,7 +161,7 @@
 
                             <input class="input" id="newBloodType" type="text" placeholder="O">
                             <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-tint"></i>
                             </span>
                         </div>
                     </div>
@@ -182,19 +179,19 @@
                         <label class="label">Emergency Phone</label>
                         <div class="control has-icons-left">
 
-                            <input class="input" id="newEmergencyPhone" type="text" placeholder="John Doe">
+                            <input class="input phone" id="newEmergencyPhone" type="text" placeholder="(555) 555-5555">
                             <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-phone"></i>
                             </span>
                         </div>
                     </div>
 
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-text" id="newPatientBtn">Submit</button>
+                            <button class="button is-text" id="newPatientBtn">Save</button>
                         </div>
                         <div class="control">
-                            <button class="button is-text">Cancel</button>
+                            <button class="button is-text">Close</button>
                         </div>
                     </div>
                 </form>
@@ -214,7 +211,7 @@
                 <h3 class="title is-2 has-text-centered"><strong>Doctors</strong></h3>
                 <div class="search-holder has-text-centered">
                     <input class="input search-bar" id="drSearchInput" onkeyup="drSearchFunction()" type="text"
-                        placeholder="Search doctor name">
+                        placeholder="Search doctor name or ID">
                 </div>
                 <br>
 
@@ -300,7 +297,7 @@
                             <button id="newDoctorBtn" class="button is-text">Submit</button>
                         </div>
                         <div class="control">
-                            <button class="button is-text">Cancel</button>
+                            <button class="button is-text">Close</button>
                         </div>
                     </div>
                 </form>
@@ -377,19 +374,19 @@
                         <div class="field">
                             <label class="label">Blood Type</label>
                             <input class="input hidden-input" type="text">
-                            <p class="bloodType-container">
+                            <p class="bloodType-container editable">
                             </p>
                         </div>
                         <div class="field">
                             <label class="label">Emergency Contact</label>
                             <input class="input hidden-input" type="text">
-                            <p class="emergencyContact-container">
+                            <p class="emergencyContact-container editable">
                             </p>
                         </div>
                         <div class="field">
                             <label class="label">Emergency Contact Phone</label>
                             <input class="input hidden-input" type="text">
-                            <p class="contactPhone-container">
+                            <p class="contactPhone-container editable">
                             </p>
                         </div>
 
@@ -399,7 +396,7 @@
         </section>
         <footer class="modal-card-foot">
             <button class="button is-dark" id="save-changes-button">Save Changes</button>
-            <button class="button" id="add-cancel-button">Cancel</button>
+            <button class="button" id="add-cancel-button">Close</button>
         </footer>
     </div>
 </div>
@@ -451,7 +448,7 @@
             </div>
         </section>
         <footer class="modal-card-foot">
-            <button class="button" id="doc-cancel-button">Cancel</button>
+            <button class="button" id="doc-cancel-button">Close</button>
         </footer>
     </div>
 </div>

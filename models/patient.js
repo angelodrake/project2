@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var Patient = sequelize.define("Patient", {
         name: {
             allowNull: false,
@@ -43,11 +43,10 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
-    Patient.associate = function(models) {
+    Patient.associate = function (models) {
         Patient.hasMany(models.Doctor, {}),
-        Patient.hasMany(models.Prescription, {}),
-        Patient.hasMany(models.Insurance, {})
+            Patient.hasMany(models.Prescription, {}),
+            Patient.hasMany(models.Insurance, {})
     };
     return Patient;
 };
-  
