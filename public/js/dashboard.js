@@ -1,35 +1,9 @@
 // Making the phone number auto fill characters ()
-// function formatPhone(e, id) {
-//     if (e.keyCode !== 8) {
-
-//         return function () {
-//             var output;
-//             var input = $(id).val();
-//             input = input.replace(/[^0-9]/g, '');
-//             var area = input.substr(0, 3);
-//             var pre = input.substr(3, 3);
-//             var tel = input.substr(6, 4);
-//             if (area.length < 3) {
-//                 output = "(" + area;
-//             } else if (area.length == 3 && pre.length < 3) {
-//                 output = "(" + area + ")" + " " + pre;
-//             } else
-//                 if (area.length == 3 && pre.length == 3) {
-//                     output = "(" + area + ")" + " " + pre + "-" + tel;
-//                 }
-//             $(id).val(output);
-
-//         }
-//     }
-// }
-// $("#phone").keyup(formatPhone(e, "#phone"));
-// $("#docPhone").keyup(formatPhone(e, "#docPhone"));
-// $("#newEmergencyPhone").keyup(formatPhone(e, "#newEmergencyPhone"));
-
-$("#phone").keyup(function (e) {
-    if (e.keyCode !== 8) {
+function formatPhone(id) {
+    return function (e) {
+        if (e.keyCode === 8) return;
         var output;
-        var input = $("#phone").val();
+        var input = $(id).val();
         input = input.replace(/[^0-9]/g, '');
         var area = input.substr(0, 3);
         var pre = input.substr(3, 3);
@@ -42,52 +16,14 @@ $("#phone").keyup(function (e) {
             if (area.length == 3 && pre.length == 3) {
                 output = "(" + area + ")" + " " + pre + "-" + tel;
             }
-        $("#phone").val(output);
+        $(id).val(output);
+
     }
-})
+}
 
-$("#docPhone").keyup(function (e) {
-    if (e.keyCode !== 8) {
-        var output;
-        var input = $("#docPhone").val();
-        input = input.replace(/[^0-9]/g, '');
-        var area = input.substr(0, 3);
-        var pre = input.substr(3, 3);
-        var tel = input.substr(6, 4);
-        if (area.length < 3) {
-            output = "(" + area;
-        } else if (area.length == 3 && pre.length < 3) {
-            output = "(" + area + ")" + " " + pre;
-        } else
-            if (area.length == 3 && pre.length == 3) {
-                output = "(" + area + ")" + " " + pre + "-" + tel;
-            }
-        $("#docPhone").val(output);
-    }
-})
-
-
-$("#newEmergencyPhone").keyup(function (e) {
-    if (e.keyCode !== 8) {
-        var output;
-        var input = $("#newEmergencyPhone").val();
-        input = input.replace(/[^0-9]/g, '');
-        var area = input.substr(0, 3);
-        var pre = input.substr(3, 3);
-        var tel = input.substr(6, 4);
-        if (area.length < 3) {
-            output = "(" + area;
-        } else if (area.length == 3 && pre.length < 3) {
-            output = "(" + area + ")" + " " + pre;
-        } else
-            if (area.length == 3 && pre.length == 3) {
-                output = "(" + area + ")" + " " + pre + "-" + tel;
-            }
-        $("#newEmergencyPhone").val(output);
-    }
-})
-
-
+$("#phone").keyup(formatPhone("#phone"));
+$("#docPhone").keyup(formatPhone("#docPhone"));
+$("#newEmergencyPhone").keyup(formatPhone("#newEmergencyPhone"));
 
 //changing tabs 
 function tabChanger(event, tabId) {
@@ -197,9 +133,6 @@ $("#all-patients-tab").click(function fillPatients() {
 
     })
 }
-    // .then(function () {
-    //     $("#loading-patients").style.display = "none";
-    // })
 );
 
 //filling doctors table
