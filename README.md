@@ -3,9 +3,20 @@
 *Username: test3@test.com
 password: pass*
 
-[This online app, Patient Link](https://patient-link.herokuapp.com/dashboard) was made to be used for computers only, and is not optomized for small screens.  We intended for it to only be used on a local hospital network.
+[This online app, Patient Link](https://patient-link.herokuapp.com/dashboard) was optimised for desktop only, and is not meant for small screens. 
 
-The website is designed to allow hospitals and other health care facilities to quickly and easily access patient information, especially for patients who have not yet been to the facility.  This can remove wait times due to paper work, and will allow hospitals to get vital information, like blood type, in dire situations.  We even made patient cards with QR codes on them so patient information can be quickly accessed.
+This application is designed to allow hospitals and other health care facilities to quickly and easily access patient information from a centralized database. This can remove wait times due to paper work, and allow hospitals to get vital information quickly if needed in dire situations. Patient Link also has routes built in for a QR code. 
 
-Facilities can add patients or doctors to the global database.  Doctors can be assigned to patients along with prescriptions and insurance.  Additionally, data is available to enable growth of a facility by comparing its speed and efficiency against national averages. 
+Once logged into the application you can add patients and doctors to the database, search through existing database entries, and visit the analytics page by clicking the link in the bottom right corner. The analytics page uses data from the server to create a visual representation of key performance indicators of the facility using the application.
 
+# QR Code Links
+
+*Generate a qr code link with the Patient Link URL below and use any qr code scanner while logged into the application.*
+
+Link: [CLICK HERE] (https://patient-link.herokuapp.com/patients/3)
+
+QR Code Generator: [CLICK HERE] (https://www.the-qrcode-generator.com/)
+
+# Key Technologies Used
+
+This is a full-stack application deployed to heroku using Passport.js for user authentication, D3.js for data visualization, Node/Express, and mySQL with sequalize for the database.
